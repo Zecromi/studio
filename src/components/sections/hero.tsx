@@ -4,13 +4,21 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/typewriter-text";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Cpu } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section id="home" className="flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center text-center">
+    <section id="home" className="relative flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden text-center">
       <div className="space-y-4 flex flex-col items-center">
         <Image
             src="/CyberCat.png"
@@ -19,7 +27,10 @@ const HeroSection = () => {
             height={100}
             className="rounded-full border-2 border-primary shadow-[0_0_20px_hsl(var(--primary)/0.7)] mb-4"
         />
-     
+     <Cpu 
+       className="h-12 w-12 text-primary/50"
+       style={{ transform: `translateY(${offsetY * 0.2}px)` }}
+     />
         <h1 className="text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl text-glow">
           <TypewriterText text="Omar OM" />
         </h1>
@@ -44,3 +55,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
