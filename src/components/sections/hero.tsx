@@ -4,7 +4,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/typewriter-text";
-import { ArrowDown, Cpu, Binary, Code } from "lucide-react";
+import { ArrowDown, Cpu, Binary, Code,SquareChevronRight, Braces } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -32,23 +32,34 @@ const HeroSection = () => {
   }, []);
 
   const iconTransform = {
-    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.03}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'drop-shadow(-100px 60px 5px hsl(var(--primary) / 0.5))'
+    filter: 'drop-shadow(-25px 15px 6px hsl(var(--primary) / 0.5))'
+  
   };
 
   const iconTransformLeft = {
-    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.08}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'drop-shadow(120px -60px 5px hsl(var(--primary) / 0.5))'
+    filter: 'drop-shadow(120px -60px 6px hsl(var(--primary) / 0.5))'
   };
 
   const iconTransformRight = {
     transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'drop-shadow(-120px -120px 5px hsl(var(--primary) / 0.5))'
+    filter: 'drop-shadow(-120px -120px 6px hsl(var(--primary) / 0.8))'
   };
-
+  const iconTransformTop = {
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.09}px)`,
+    transition: 'transform 0.3s ease-out',
+    filter: 'drop-shadow(120px 120px 6px hsl(var(--primary) / 0.6))'
+  };
+  const iconTransformCenterRight = {
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transition: 'transform 0.3s ease-out',
+    filter: 'drop-shadow(-120px 0px 6px hsl(var(--primary) / 0.5))'
+  
+  };
   return (
     <section 
       id="home" 
@@ -56,19 +67,29 @@ const HeroSection = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
+       <SquareChevronRight 
+         className="absolute top-4 left-6 h-[5rem] w-[5rem] text-primary/80 transition-transform duration-300 ease-out"
+         style={iconTransformTop}
+         strokeWidth={1}
+       />
        <Cpu 
-         className="absolute top-4 right-2 h-[8rem] w-[8rem] text-primary/80 transition-transform duration-300 ease-out"
+         className="absolute top-6 right-2 h-[10rem] w-[10rem] text-primary/80 transition-transform duration-300 ease-out"
          style={iconTransform}
          strokeWidth={1}
        />
        <Binary 
-         className="absolute bottom-4 left-1 h-52 w-52 text-primary/80 transition-transform duration-300 ease-out"
+         className="absolute bottom-4 left-1 h-[10rem] w-[10rem] text-primary/80 transition-transform duration-300 ease-out"
          style={iconTransformLeft}
          strokeWidth={1}
        />
         <Code 
-         className="absolute bottom-10 right-1 h-28 w-28 text-primary/80 transition-transform duration-300 ease-out"
+         className="absolute bottom-10 right-1 h-[6rem] w-[6rem] text-primary/80 transition-transform duration-300 ease-out"
          style={iconTransformRight}
+         strokeWidth={1}
+       />
+       <Braces 
+         className="absolute center-0 right-1 h-[4rem] w-[4rem] text-primary/80 transition-transform duration-300 ease-out"
+         style={iconTransformCenterRight}
          strokeWidth={1}
        />
       <div className="space-y-4 flex flex-col items-center z-10">
@@ -103,6 +124,7 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
 
 
