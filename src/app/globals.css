@@ -5,75 +5,42 @@
 
 @layer base {
   :root {
-    --background: 120 10% 98%;
-    --foreground: 120 100% 10%;
-    --card: 120 10% 98%;
-    --card-foreground: 120 100% 10%;
-    --popover: 120 10% 98%;
-    --popover-foreground: 120 100% 10%;
-    --primary: 120 61% 40%;
-    --primary-foreground: 120 20% 98%;
-    --secondary: 120 10% 93%;
-    --secondary-foreground: 120 100% 10%;
-    --muted: 120 10% 93%;
-    --muted-foreground: 120 10% 40%;
-    --accent: 120 100% 30%;
-    --accent-foreground: 120 20% 98%;
+    --background: 48 83% 94%; /* #FFFBE3 */
+    --foreground: 0 0% 30%; /* #4D4D4D */
+    --card: 48 83% 94%;
+    --card-foreground: 0 0% 30%;
+    --popover: 48 83% 94%;
+    --popover-foreground: 0 0% 30%;
+    --primary: 0 0% 30%;
+    --primary-foreground: 48 83% 94%;
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 30%;
+    --accent-foreground: 48 83% 94%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 120 10% 89%;
-    --input: 120 10% 89%;
-    --ring: 120 61% 40%;
+    --border: 0 0% 30%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 30%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --sidebar-background: 120 10% 98%;
-    --sidebar-foreground: 120 100% 10%;
-    --sidebar-primary: 120 61% 40%;
-    --sidebar-primary-foreground: 120 20% 98%;
-    --sidebar-accent: 120 10% 93%;
-    --sidebar-accent-foreground: 120 100% 10%;
-    --sidebar-border: 120 10% 89%;
-    --sidebar-ring: 120 61% 40%;
+    --sidebar-background: 48 83% 94%;
+    --sidebar-foreground: 0 0% 30%;
+    --sidebar-primary: 0 0% 30%;
+    --sidebar-primary-foreground: 48 83% 94%;
+    --sidebar-accent: 0 0% 93%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 30%;
+    --sidebar-ring: 0 0% 30%;
   }
 
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 120 100% 90%;
-    --card: 0 0% 10%;
-    --card-foreground: 120 100% 90%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 120 100% 90%;
-    --primary: 120 100% 50%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 120 100% 90%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 120 20% 60%;
-    --accent: 120 61% 50%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 72.2% 50.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 120 100% 25%;
-    --input: 120 100% 15%;
-    --ring: 120 100% 50%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 120 100% 90%;
-    --sidebar-primary: 120 100% 50%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 120 100% 90%;
-    --sidebar-border: 120 100% 25%;
-    --sidebar-ring: 120 100% 50%;
-  }
+  /* Remove dark class definitions */
 }
 
 @layer base {
@@ -82,13 +49,13 @@
   }
   body {
     @apply bg-background text-foreground font-code;
-    text-shadow: 0 0 2px hsl(var(--foreground) / 0.5), 0 0 5px hsl(var(--primary) / 0.3);
+    text-shadow: 0 0 1px hsl(var(--foreground) / 0.5);
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary) / 0.8), 0 0 20px hsl(var(--primary) / 0.5);
+    text-shadow: 0 0 3px hsl(var(--primary) / 0.7), 0 0 8px hsl(var(--primary) / 0.5);
   }
   
   .crt-effect::after {
@@ -100,20 +67,20 @@
     height: 100vh;
     background: repeating-linear-gradient(
         0deg,
-        hsl(var(--background) / 0.15),
-        hsl(var(--background) / 0.15) 1px,
+        hsla(0, 0%, 30%, 0.05),
+        hsla(0, 0%, 30%, 0.05) 1px,
         transparent 1px,
         transparent 2px
     );
     pointer-events: none;
     z-index: 9999;
-    animation: flicker 0.1s infinite;
+    animation: flicker 0.15s infinite;
   }
   
   .grid-background {
     background-image:
-      linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
-      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+      linear-gradient(hsla(0, 0%, 30%, 0.03) 1px, transparent 1px),
+      linear-gradient(to right, hsla(0, 0%, 30%, 0.03) 1px, transparent 1px);
     background-size: 2rem 2rem;
   }
 
@@ -138,7 +105,7 @@
 
 @keyframes flicker {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.9; }
+  50% { opacity: 0.95; }
 }
 
 @keyframes glitch {

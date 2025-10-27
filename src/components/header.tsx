@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
+import { TypewriterText } from "@/components/typewriter-text";
 
 const Header = () => {
   const navLinks = [
@@ -16,7 +16,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="text-lg font-bold text-primary md:text-xl">
-          {"> CyberTerminal_"}
+          <TypewriterText text="> CyberTerminal_" />
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
@@ -29,9 +29,6 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-        </div>
       </div>
     </header>
   );

@@ -3,22 +3,23 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TypewriterText } from "@/components/typewriter-text";
 import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
   return (
     <section id="home" className="flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center text-center">
       <div className="space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter text-primary text-glow sm:text-5xl md:text-6xl lg:text-7xl">
-          John Doe
+        <h1 className="text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+          <TypewriterText text="John Doe" delay={100} className="text-glow"/>
         </h1>
         <p className="mx-auto max-w-[700px] text-lg text-foreground/80 md:text-xl">
-          Cybernetic Web Architect & Digital Craftsman
+          <TypewriterText text="Cybernetic Web Architect & Digital Craftsman" startDelay={1200} />
         </p>
         <div className="flex flex-wrap justify-center gap-2">
-          <Badge variant="outline" className="border-accent text-accent">Full-Stack Developer</Badge>
-          <Badge variant="outline" className="border-accent text-accent">UI/UX Enthusiast</Badge>
-          <Badge variant="outline" className="border-accent text-accent">Next.js Specialist</Badge>
+          <Badge variant="outline" className="border-primary/50 text-primary">Full-Stack Developer</Badge>
+          <Badge variant="outline" className="border-primary/50 text-primary">UI/UX Enthusiast</Badge>
+          <Badge variant="outline" className="border-primary/50 text-primary">Next.js Specialist</Badge>
         </div>
       </div>
       <div className="mt-12">
