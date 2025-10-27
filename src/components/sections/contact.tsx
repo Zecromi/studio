@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { TypewriterText } from "@/components/typewriter-text";
 
 
 const contactSchema = z.object({
@@ -61,7 +60,7 @@ const ContactSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Open_comms_channel..." />
+        &gt; Open_comms_channel...
       </h2>
       <div className="mx-auto max-w-2xl rounded-lg border border-primary/50 bg-card p-6 shadow-[0_0_20px_hsl(var(--primary)/0.1)]">
         <Form {...form}>
