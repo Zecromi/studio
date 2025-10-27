@@ -4,7 +4,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/typewriter-text";
-import { ArrowDown, Cpu } from "lucide-react";
+import { ArrowDown, Cpu, Binary, Code } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -34,9 +34,20 @@ const HeroSection = () => {
   const iconTransform = {
     transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'drop-shadow(-100px 60px 9px hsl(var(--primary) / 0.5))'
+    filter: 'drop-shadow(-100px 60px 5px hsl(var(--primary) / 0.5))'
   };
 
+  const iconTransformLeft = {
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transition: 'transform 0.3s ease-out',
+    filter: 'drop-shadow(120px -60px 5px hsl(var(--primary) / 0.5))'
+  };
+
+  const iconTransformRight = {
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transition: 'transform 0.3s ease-out',
+    filter: 'drop-shadow(-120px -120px 5px hsl(var(--primary) / 0.5))'
+  };
 
   return (
     <section 
@@ -46,8 +57,18 @@ const HeroSection = () => {
       onMouseLeave={handleMouseLeave}
     >
        <Cpu 
-         className="absolute top-4 right-2 h-32 w-32 text-primary/80 transition-transform duration-300 ease-out"
+         className="absolute top-4 right-2 h-[8rem] w-[8rem] text-primary/80 transition-transform duration-300 ease-out"
          style={iconTransform}
+         strokeWidth={1}
+       />
+       <Binary 
+         className="absolute bottom-4 left-1 h-52 w-52 text-primary/80 transition-transform duration-300 ease-out"
+         style={iconTransformLeft}
+         strokeWidth={1}
+       />
+        <Code 
+         className="absolute bottom-10 right-1 h-28 w-28 text-primary/80 transition-transform duration-300 ease-out"
+         style={iconTransformRight}
          strokeWidth={1}
        />
       <div className="space-y-4 flex flex-col items-center z-10">
@@ -82,6 +103,7 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
 
 
