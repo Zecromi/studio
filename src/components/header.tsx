@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
+import { TypewriterText } from "@/components/typewriter-text";
 
 const Header = () => {
   const navLinks = [
@@ -14,8 +16,15 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="#home" className="text-lg font-bold text-primary md:text-xl">
-          > CyberTerminal_
+        <Link href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
+          <Image
+            src="/cyber-cat.jpg"
+            alt="Cybernetic Cat"
+            width={40}
+            height={40}
+            className="rounded-full border-2 border-primary shadow-[0_0_10px_hsl(var(--primary)/0.7)]"
+          />
+          <TypewriterText text="> CyberTerminal_" />
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (

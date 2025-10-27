@@ -22,12 +22,12 @@ const AboutSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Accessing profile_data..." />
+        <TypewriterText text="> Accesando a_perfil..." />
       </h2>
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
-            // Mission_Objective
+            // Misión_Objetivos
           </h3>
           <p className="text-foreground/80">
             A seasoned developer specializing in crafting robust and scalable web applications. My core directive is to merge elegant design with high-performance code to create seamless user experiences. I thrive in the ever-evolving landscape of web technologies, constantly upgrading my internal systems to meet new challenges.
@@ -35,7 +35,7 @@ const AboutSection = () => {
         </div>
         <div>
           <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
-             // Skill_Matrix
+             // Skills
           </h3>
           <div className="space-y-4">
             {skills.map((skill) => (
