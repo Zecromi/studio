@@ -1,8 +1,12 @@
+
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
+import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Menu } from "lucide-react";
+import React from "react";
 
 const Header = () => {
   const navLinks = [
@@ -11,6 +15,8 @@ const Header = () => {
     { href: "#projects", label: "Proyectos" },
     { href: "#contact", label: "Contacto" },
   ];
+
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
@@ -31,6 +37,34 @@ const Header = () => {
           ))}
           <ThemeToggle />
         </nav>
+        
+        <div className="md:hidden">
+           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6 text-primary" />
+                <span className="sr-only">Open Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-background/80 backdrop-blur-sm">
+              <nav className="flex flex-col items-center justify-center h-full gap-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-2xl font-medium text-foreground/80 transition-colors hover:text-primary hover:text-glow"
+                     onClick={() => setIsSheetOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <div className="mt-8">
+                   <ThemeToggle />
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
