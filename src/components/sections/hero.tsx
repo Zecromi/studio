@@ -20,8 +20,8 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden text-center">
        <Cpu 
-         className="absolute top-1/4 h-32 w-32 text-primary/10 -z-10"
-         style={{ transform: `translateY(${offsetY * 0.2}px)` }}
+         className="absolute top-1/4 h-32 w-32 text-primary/10"
+         style={{ transform: `translateY(${offsetY * 0.2}px)`, zIndex: 0 }}
        />
       <div className="space-y-4 flex flex-col items-center z-10">
         <Image
@@ -55,5 +55,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
 
