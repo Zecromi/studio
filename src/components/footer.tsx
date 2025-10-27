@@ -15,12 +15,12 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" asChild>
             <a href="https://github.com/Zecromi" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-              <Github className="h-5 w-5 text-primary hover:text-glow" />
+              <Github className="h-5 w-5 text-primary transition-colors hover:text-foreground/90" />
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <a href="https://www.linkedin.com/in/omar-o-1b50b7212" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="h-5 w-5 text-primary hover:text-glow" />
+              <Linkedin className="h-5 w-5 text-primary transition-colors hover:text-foreground/90" />
             </a>
           </Button>
         
