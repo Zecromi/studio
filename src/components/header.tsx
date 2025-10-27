@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
 
@@ -47,6 +47,7 @@ const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-background/80 backdrop-blur-sm">
+              <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <nav className="flex flex-col items-center justify-center h-full gap-8">
                 {navLinks.map((link) => (
                   <Link
