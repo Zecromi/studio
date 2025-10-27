@@ -10,18 +10,44 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const [offsetY, setOffsetY] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setMousePosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
+  };
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const iconTransform = {
+    transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
+    transition: 'transform 0.3s ease-out'
+  };
+
+
   return (
-    <section id="home" className="relative flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden text-center">
+    <section 
+      id="home" 
+      className="relative flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden text-center"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
        <Cpu 
-         className="absolute top-4 right-2 h-32 w-32 text-primary/10 drop-shadow-[0_25px_25px_hsl(var(--primary)/0.2)]"
-         style={{ transform: `translateY(${offsetY * 2}px) translateX(${offsetY * 2}px)`, zIndex: 12}}
+         className="absolute top-4 right-2 h-32 w-32 text-primary/10 drop-shadow-[0_25px_25px_hsl(var(--primary)/0.2)] transition-transform duration-300 ease-out"
+         style={iconTransform}
+         strokeWidth={1}
        />
       <div className="space-y-4 flex flex-col items-center z-10">
         <Image
