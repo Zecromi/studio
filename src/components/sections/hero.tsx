@@ -19,7 +19,11 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden text-center">
-      <div className="space-y-4 flex flex-col items-center">
+       <Cpu 
+         className="absolute top-1/4 h-32 w-32 text-primary/10 -z-10"
+         style={{ transform: `translateY(${offsetY * 0.2}px)` }}
+       />
+      <div className="space-y-4 flex flex-col items-center z-10">
         <Image
             src="/CyberCat.png"
             alt="Cybernetic Cat"
@@ -27,10 +31,6 @@ const HeroSection = () => {
             height={100}
             className="rounded-full border-2 border-primary shadow-[0_0_20px_hsl(var(--primary)/0.7)] mb-4"
         />
-     <Cpu 
-       className="h-12 w-12 text-primary/50"
-       style={{ transform: `translateY(${offsetY * 0.2}px)` }}
-     />
         <h1 className="text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl text-glow">
           <TypewriterText text="Omar OM" />
         </h1>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           
         </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-12 z-10">
         <Button asChild variant="ghost" className="text-primary hover:bg-primary/10">
           <a href="#about">
             Explorar <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
@@ -55,4 +55,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
