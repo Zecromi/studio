@@ -1,0 +1,37 @@
+
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Twitter } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="w-full border-t border-primary/20 bg-background/50 backdrop-blur-sm">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
+        <div className="text-center text-sm text-foreground/80">
+          <p>&copy; {currentYear} CYBERTERMINAL. All rights reserved.</p>
+          <p>Status: <span className="text-primary">ONLINE</span> | Location: <span className="text-primary">Cyberspace Grid 7</span></p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon" asChild>
+            <a href="#" aria-label="GitHub">
+              <Github className="h-5 w-5 text-primary hover:text-glow" />
+            </a>
+          </Button>
+          <Button variant="ghost" size="icon" asChild>
+            <a href="#" aria-label="LinkedIn">
+              <Linkedin className="h-5 w-5 text-primary hover:text-glow" />
+            </a>
+          </Button>
+          <Button variant="ghost" size="icon" asChild>
+            <a href="#" aria-label="Twitter">
+              <Twitter className="h-5 w-5 text-primary hover:text-glow" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
