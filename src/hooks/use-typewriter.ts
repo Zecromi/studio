@@ -13,11 +13,12 @@ export function useTypewriter({ text, delay = 50, startDelay = 0 }: UseTypewrite
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isReady, setIsReady] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
     const startTimer = setTimeout(() => {
       setIsReady(true);
+      setShowCursor(true);
     }, startDelay);
 
     return () => clearTimeout(startTimer);
@@ -26,13 +27,7 @@ export function useTypewriter({ text, delay = 50, startDelay = 0 }: UseTypewrite
   useEffect(() => {
     if (!isReady || currentIndex >= text.length) {
       if(currentIndex >= text.length) {
-         // Keep cursor blinking at the end
-         const cursorBlinkTimer = setInterval(() => {
-            setShowCursor(prev => !prev);
-         }, 500);
-         // set showCursor to true initially at the end
-         setShowCursor(true);
-         return () => clearInterval(cursorBlinkTimer);
+        setShowCursor(false);
       }
       return;
     }
@@ -44,9 +39,6 @@ export function useTypewriter({ text, delay = 50, startDelay = 0 }: UseTypewrite
 
     return () => clearInterval(intervalId);
   }, [currentIndex, text, delay, isReady]);
-
-  // Use a different logic for cursor visibility during typing
-  const isTyping = currentIndex < text.length && isReady;
-
-  return { displayedText, showCursor: isTyping || showCursor };
+  
+  return { displayedText, showCursor };
 }
