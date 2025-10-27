@@ -33,7 +33,8 @@ const HeroSection = () => {
 
   const iconTransform = {
     transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.05}px)`,
-    transition: 'transform 0.3s ease-out'
+    transition: 'transform 0.3s ease-out',
+    boxShadow: '-50px 44px 20px 2px #A6FF00'
   };
 
 
@@ -45,7 +46,7 @@ const HeroSection = () => {
       onMouseLeave={handleMouseLeave}
     >
        <Cpu 
-         className="absolute top-4 right-2 h-32 w-32 text-primary/20 drop-shadow-[0_25px_25px_hsl(var(--primary)/0.2)] transition-transform duration-300 ease-out"
+         className="absolute top-4 right-2 h-32 w-32 text-primary/50 transition-transform duration-300 ease-out"
          style={iconTransform}
          strokeWidth={1}
        />
@@ -81,4 +82,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
