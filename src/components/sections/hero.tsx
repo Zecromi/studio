@@ -45,7 +45,7 @@ const HeroSection = () => {
       onMouseLeave={handleMouseLeave}
     >
        <Cpu 
-         className="absolute top-4 right-2 h-32 w-32 text-primary/10 drop-shadow-[0_25px_25px_hsl(var(--primary)/0.2)] transition-transform duration-300 ease-out"
+         className="absolute top-4 right-2 h-32 w-32 text-primary/20 drop-shadow-[0_25px_25px_hsl(var(--primary)/0.2)] transition-transform duration-300 ease-out"
          style={iconTransform}
          strokeWidth={1}
        />
@@ -81,3 +81,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
