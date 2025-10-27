@@ -1,7 +1,9 @@
+
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TypewriterText } from "@/components/typewriter-text";
 import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
@@ -9,7 +11,7 @@ const HeroSection = () => {
     <section id="home" className="flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center text-center">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl text-glow">
-          Omar OM
+          <TypewriterText text="Omar OM" />
         </h1>
         <p className="mx-auto max-w-[700px] text-lg text-foreground/80 md:text-xl">
           Cybernetic Web Architect & Digital Craftsman

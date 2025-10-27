@@ -1,8 +1,10 @@
+
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Code, Database, Layers, BrainCircuit } from "lucide-react";
+import { TypewriterText } from "@/components/typewriter-text";
 
 const skills = [
   { name: "TypeScript / JavaScript", level: 95, icon: <Code /> },
@@ -20,7 +22,7 @@ const AboutSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        &gt; Accessing profile_data...
+        <TypewriterText text="> Accessing profile_data..." />
       </h2>
       <div className="grid gap-12 md:grid-cols-2">
         <div>

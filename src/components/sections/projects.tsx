@@ -1,9 +1,11 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { TypewriterText } from "@/components/typewriter-text";
 
 const projects = [
   {
@@ -40,7 +42,7 @@ const ProjectsSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        &gt; Loading project_archives...
+        <TypewriterText text="> Loading project_archives..." />
       </h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
