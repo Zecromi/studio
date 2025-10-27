@@ -1,6 +1,5 @@
 
 import Image from "next/image";
-import { TypewriterText } from "@/components/typewriter-text";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,7 +37,7 @@ const ProjectsSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Loading project_archives..." delay={70} />
+        > Loading project_archives...
       </h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
