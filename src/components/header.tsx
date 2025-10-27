@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { TypewriterText } from "@/components/typewriter-text";
+import { ThemeToggle } from "./theme-toggle";
 
 const Header = () => {
   const navLinks = [
@@ -28,6 +29,7 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
+          <ThemeToggle />
         </nav>
       </div>
     </header>
