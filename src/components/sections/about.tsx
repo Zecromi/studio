@@ -1,10 +1,8 @@
-
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Code, Database, Layers, BrainCircuit } from "lucide-react";
-import { TypewriterText } from "@/components/typewriter-text";
 
 const skills = [
   { name: "TypeScript / JavaScript", level: 95, icon: <Code /> },
@@ -22,20 +20,20 @@ const AboutSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Accessing profile_data..." />
+        &gt; Accessing profile_data...
       </h2>
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <h3 className="mb-4 text-2xl font-semibold text-primary">
-            <TypewriterText text="// Mission_Objective" className="text-glow" startDelay={1000} />
+          <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
+            // Mission_Objective
           </h3>
           <p className="text-foreground/80">
             A seasoned developer specializing in crafting robust and scalable web applications. My core directive is to merge elegant design with high-performance code to create seamless user experiences. I thrive in the ever-evolving landscape of web technologies, constantly upgrading my internal systems to meet new challenges.
           </p>
         </div>
         <div>
-          <h3 className="mb-4 text-2xl font-semibold text-primary">
-             <TypewriterText text="// Skill_Matrix" className="text-glow" startDelay={1500} />
+          <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
+             // Skill_Matrix
           </h3>
           <div className="space-y-4">
             {skills.map((skill) => (
@@ -51,8 +49,8 @@ const AboutSection = () => {
         </div>
       </div>
       <div className="mt-12">
-        <h3 className="mb-4 text-2xl font-semibold text-primary">
-          <TypewriterText text="// Tech_Arsenal" className="text-glow" startDelay={2000} />
+        <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
+          // Tech_Arsenal
         </h3>
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
