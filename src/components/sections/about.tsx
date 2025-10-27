@@ -3,19 +3,20 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Code, Database, Layers, BrainCircuit } from "lucide-react";
+import { Code, Database, Layers, BrainCircuit, Hexagon, Palette } from "lucide-react";
 import { TypewriterText } from "@/components/typewriter-text";
 
 const skills = [
-  { name: "TypeScript / JavaScript", level: 95, icon: <Code /> },
-  { name: "React / Next.js", level: 90, icon: <Layers /> },
-  { name: "Node.js / Express", level: 85, icon: <Database /> },
-  { name: "Cybernetic Integration", level: 75, icon: <BrainCircuit /> },
+  { name: "TypeScript / JavaScript", level: 80, icon: <Code /> },
+  { name: "React / Native", level: 80, icon: <Layers /> },
+  { name: "Node.js", level: 85, icon: <Hexagon /> },
+  { name: "MySQLServer", level: 80, icon: <Database /> },
+  { name: "Tailwind / CSS / Sass", level: 75, icon: <Palette /> },
 ];
 
 const technologies = [
-  "Astro", "Tailwind CSS", "shadcn/ui", "Firebase", "Genkit",
-  "Zod", "React Hook Form", "Vercel", "Docker", "Git", "Figma"
+  "Astro", "Tailwind CSS", "shadcn/ui", "Firebase", "ASP.NET",
+  "Postman", "React Hook Form", "Docker", "Git", "Github", "C#", "Java"
 ];
 
 const AboutSection = () => {
@@ -30,7 +31,7 @@ const AboutSection = () => {
             // Misión_Objetivos
           </h3>
           <p className="text-foreground/80">
-            A seasoned developer specializing in crafting robust and scalable web applications. My core directive is to merge elegant design with high-performance code to create seamless user experiences. I thrive in the ever-evolving landscape of web technologies, constantly upgrading my internal systems to meet new challenges.
+          Como diseñador de UX/UI, mi fortaleza reside en transformar ideas en interfaces web y móviles funcionales y atractivas. Valoro profundamente el trabajo en equipo y la comunicación estratégica, creyendo que son clave para tomar decisiones acertadas y alcanzar los objetivos del proyecto. Soy una persona persistente y creativa, comprometida con la excelencia en cada tarea y con una mentalidad de crecimiento constante, donde cada error es una oportunidad para aprender y mejorar.
           </p>
         </div>
         <div>

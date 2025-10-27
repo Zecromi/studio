@@ -6,10 +6,10 @@ import { ThemeToggle } from "./theme-toggle";
 
 const Header = () => {
   const navLinks = [
-    { href: "#home", label: "HOME" },
-    { href: "#about", label: "ABOUT" },
-    { href: "#projects", label: "PROJECTS" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "#home", label: "Inicio" },
+    { href: "#about", label: "Acerca de" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#contact", label: "Contacto" },
   ];
 
   return (

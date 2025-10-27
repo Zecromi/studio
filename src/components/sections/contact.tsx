@@ -16,16 +16,16 @@ import { TypewriterText } from "@/components/typewriter-text";
 
 
 const contactSchema = z.object({
-  name: z.string().min(2, { message: "Signal ID required (min 2 chars)." }),
-  email: z.string().email({ message: "Invalid comms channel (email)." }),
-  message: z.string().min(10, { message: "Transmission too short (min 10 chars)." }),
+  name: z.string().min(2, { message: "Tu alias es requerido (minimo 2 caracteres)." }),
+  email: z.string().email({ message: "Comando de seguridad invalido (correo)." }),
+  message: z.string().min(10, { message: "Transmision corta (minimo 10 cararteres)." }),
 });
 
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full border border-primary bg-primary/20 text-primary hover:bg-primary hover:text-primary-foreground">
-      {pending ? "> Transmitting..." : "> Send Transmission"}
+      {pending ? "> Transmitiendo..." : ">  Transmitir"}
     </Button>
   );
 }
@@ -61,7 +61,7 @@ const ContactSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Open_comms_channel..." />
+        <TypewriterText text="> Contacto..." />
       </h2>
       <div className="mx-auto max-w-2xl rounded-lg border border-primary/50 bg-card p-6 shadow-[0_0_20px_hsl(var(--primary)/0.1)]">
         <Form {...form}>
@@ -76,9 +76,9 @@ const ContactSection = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary">// Your_Alias</FormLabel>
+                  <FormLabel className="text-primary">// Tu_Alias</FormLabel>
                   <FormControl>
-                    <Input placeholder="> Enter your callsign..." {...field} className="bg-background/50 focus:bg-background" />
+                    <Input placeholder="> Ingresa tu alias..." {...field} className="bg-background/50 focus:bg-background" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -89,9 +89,9 @@ const ContactSection = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary">// Secure_Frequency (Email)</FormLabel>
+                  <FormLabel className="text-primary">// Comando_Seguridad (Correo)</FormLabel>
                   <FormControl>
-                    <Input placeholder="> Enter your secure comms channel..." {...field} className="bg-background/50 focus:bg-background" />
+                    <Input placeholder="> Ingresa comando..." {...field} className="bg-background/50 focus:bg-background" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -102,9 +102,9 @@ const ContactSection = () => {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary">// Data_Packet (Message)</FormLabel>
+                  <FormLabel className="text-primary">// Base de datos (Mensaje)</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="> Begin transmission..." {...field} className="min-h-[150px] bg-background/50 focus:bg-background" />
+                    <Textarea placeholder="> Que deseas transmitir..." {...field} className="min-h-[150px] bg-background/50 focus:bg-background" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

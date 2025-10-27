@@ -24,12 +24,12 @@ const HeroSection = () => {
           <TypewriterText text="Omar OM" />
         </h1>
         <p className="mx-auto max-w-[700px] text-lg text-foreground/80 md:text-xl">
-          <TypewriterText text="Cybernetic Web Architect & Digital Craftsman" startDelay={1000} />
+          <TypewriterText text="Diseñador web y artesano digital" startDelay={1000} />
         </p>
         <div className="flex flex-wrap justify-center gap-2">
           <Badge variant="outline" className="border-primary/50 text-primary"> Desarrollador Full-Stack</Badge>
-          <Badge variant="outline" className="border-primary/50 text-primary">UI/UX Entusiasta</Badge>
-          <Badge variant="outline" className="border-primary/50 text-primary">.Net</Badge>
+          <Badge variant="outline" className="border-primary/50 text-primary">Entusiasta UI/UX</Badge>
+          
         </div>
       </div>
       <div className="mt-12">

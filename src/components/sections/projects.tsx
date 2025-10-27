@@ -9,32 +9,32 @@ import { TypewriterText } from "@/components/typewriter-text";
 
 const projects = [
   {
-    title: "Project Chimera",
-    description: "A decentralized identity management system using blockchain for enhanced security and user control.",
-    tags: ["Next.js", "Solidity", "Ethers.js", "Tailwind CSS"],
+    title: "Gestalh",
+    description: "Página para el área de recursos humanos desarrollada en ASP.NET para la gestión y control de los empleados de la empresa.",
+    tags: ["ASP.NET", "SQL Server", "C#"],
     image: PlaceHolderImages.find(img => img.id === 'project-1'),
     color: "hsl(180, 50%, 40%)",
   },
   {
-    title: "Project Neon",
-    description: "An interactive data visualization platform for urban transit systems, rendered in a real-time 3D environment.",
-    tags: ["React", "Three.js", "D3.js", "Firebase"],
+    title: "Web Candidatos",
+    description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
+    tags: ["ASP.NET", "SQL Server", "C#"],
     image: PlaceHolderImages.find(img => img.id === 'project-2'),
-    color: "hsl(300, 60%, 50%)",
+    color: "hsl(236, 58.90%, 27.60%)",
   },
   {
-    title: "Project Oracle",
-    description: "AI-powered code generation tool that learns from existing codebases to suggest improvements and new features.",
-    tags: ["Genkit", "Astro", "Python", "LangChain"],
+    title: "Gespa Web",
+    description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
+    tags: ["React", "BootstrapReact", "Sass", "Axios","NodeJs"],
     image: PlaceHolderImages.find(img => img.id === 'project-3'),
-    color: "hsl(45, 100%, 50%)",
+    color: "hsl(0, 100.00%, 50.00%)",
   },
   {
-    title: "Project Gridrunner",
-    description: "A full-featured e-commerce platform with a retro-futuristic UI, built for performance and scalability.",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "shadcn/ui"],
+    title: "Coorin Web",
+    description: "Pagina para la consulta de cuentas, como migración de un aplicativo interno, a pagina web",
+    tags: ["React", "Tailwind", "Preline"],
     image: PlaceHolderImages.find(img => img.id === 'project-4'),
-    color: "hsl(240, 60%, 60%)",
+    color: "hsl(150, 56.70%, 35.30%)",
   }
 ];
 
@@ -42,7 +42,7 @@ const ProjectsSection = () => {
   return (
     <section className="w-full">
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Loading project_archives..." />
+        <TypewriterText text="> Proyectos..." />
       </h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
@@ -79,7 +79,7 @@ const ProjectsSection = () => {
               </div>
               <Button asChild variant="link" className="p-0 text-primary group-hover:text-[var(--project-color)]">
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  View Project <ExternalLink className="ml-2 h-4 w-4" />
+                  Ver proyecto <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </CardFooter>

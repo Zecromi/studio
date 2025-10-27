@@ -4,9 +4,9 @@
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  name: z.string().min(2, { message: "El alias debe contener mas de dos caracteres." }),
+  email: z.string().email({ message: "Ingresa un correo valido." }),
+  message: z.string().min(10, { message: "El mensaje debe contener almenos 10 caracteres." }),
 });
 
 export async function submitContactForm(prevState: any, formData: FormData) {
@@ -19,7 +19,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Error: Please check the fields.",
+      message: "Error: Por favor verifica que los campos estén completos.",
       success: false,
     };
   }
@@ -29,7 +29,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
   console.log("Contact form submitted:", validatedFields.data);
 
   return {
-    message: `SUCCESS: Thank you, ${validatedFields.data.name}. Your message has been received.`,
+    message: `COMPLETADO: Gracias, ${validatedFields.data.name}. tu transmision fue enviada.`,
     success: true,
     resetKey: Date.now().toString(),
   };
