@@ -4,7 +4,7 @@
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X, Search, Filter, Briefcase, UserPlus, FileText, User, Phone, Calendar } from "lucide-react";
+import { ExternalLink, X, Briefcase, User, Phone, Calendar } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Project = {
@@ -40,96 +40,78 @@ export function ProjectModal({ project }: ProjectModalProps) {
         </button>
       </header>
       
-      <div className="p-6 overflow-y-auto flex-grow grid-background">
-        <h2 className="text-2xl mb-2" style={{ color: project.color }}>{project.title}</h2>
-        <p className="text-foreground/80 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="text-base" style={{ borderColor: project.color, color: project.color }}>
-                {tag}
-            </Badge>
-            ))}
-        </div>
-        
-        <Button asChild variant="link" className="p-0 text-base mb-8" style={{ color: project.color }}>
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Ver Proyecto <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
-        </Button>
+      <div className="p-6 overflow-y-auto flex-grow grid-background flex justify-center items-center">
+        <div className="w-full max-w-lg">
+          <h2 className="text-2xl mb-2">{project.title}</h2>
+          <p className="text-foreground/80 mb-4">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag) => (
+              <Badge key={tag} variant="outline" className="text-base" style={{ borderColor: project.color, color: project.color }}>
+                  {tag}
+              </Badge>
+              ))}
+          </div>
+          
+          <Button asChild variant="link" className="p-0 text-base mb-8" style={{ color: project.color }}>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  Ver Proyecto <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+          </Button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Mini Window 1 */}
-            <div className="border rounded-md p-4" style={{ borderColor: `${project.color}80` }}>
-                <h3 className="font-bold mb-2 text-sm">// Dashboard_Actividad</h3>
-                {project.title === 'Gestalh' ? (
-                <div className="h-full w-full bg-[#0f2c4a] rounded-sm p-3 text-white font-sans text-xs">
-                    <div className="flex justify-center items-center mb-2">
-                         <p className="text-lg font-serif">Precandidatos / Reportes</p>
-                    </div>
-                     <div className="bg-white/10 rounded-full p-1 flex justify-around mb-4 text-[10px]">
-                        <button className="bg-white/20 text-white py-1 px-2 rounded-full">Nuevo Precandidato</button>
-                        <button className="py-1 px-2 rounded-full">Consultar Reporte</button>
-                         <button className="py-1 px-2 rounded-full">Actualizar/Referido</button>
-                    </div>
-                    <div className="bg-gray-100 text-black rounded-md p-3">
-                         <div className="text-center mb-2">
-                            <Briefcase className="w-6 h-6 inline-block text-[#3b82f6]" />
-                            <p className="font-serif text-sm">Precandidato / Entrevista</p>
-                            <p className="text-[10px] text-gray-500">Inserte datos solicitados</p>
-                         </div>
-                        <div className="grid grid-cols-2 gap-2 text-[10px]">
-                            <div className="space-y-2">
-                                <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Nombre</label>
-                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
-                                <label className="flex items-center text-gray-600 mb-1"><Phone className="w-3 h-3 mr-1"/> Telefono</label>
-                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
-                                <label className="flex items-center text-gray-600 mb-1"><Calendar className="w-3 h-3 mr-1"/> Fecha</label>
-                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
-                            </div>
-                             <div className="space-y-2">
-                                <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Apellido</label>
-                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
-                                <label className="flex items-center text-gray-600 mb-1"><Briefcase className="w-3 h-3 mr-1"/> Entrevista</label>
-                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
-                            </div>
+          <div className="border rounded-md p-4" style={{ borderColor: `${project.color}80` }}>
+              <h3 className="font-bold mb-2 text-sm">// Dashboard_Actividad</h3>
+              {project.title === 'Gestalh' ? (
+              <div className="h-full w-full bg-[#0f2c4a] rounded-sm p-3 text-white font-sans text-xs">
+                  <div className="flex justify-center items-center mb-2">
+                        <p className="text-lg font-serif">Precandidatos / Reportes</p>
+                  </div>
+                    <div className="bg-white/10 rounded-full p-1 flex justify-around mb-4 text-[10px]">
+                      <button className="bg-white/20 text-white py-1 px-2 rounded-full">Nuevo Precandidato</button>
+                      <button className="py-1 px-2 rounded-full">Consultar Reporte</button>
+                        <button className="py-1 px-2 rounded-full">Actualizar/Referido</button>
+                  </div>
+                  <div className="bg-gray-100 text-black rounded-md p-3">
+                        <div className="text-center mb-2">
+                          <Briefcase className="w-6 h-6 inline-block text-[#3b82f6]" />
+                          <p className="font-serif text-sm">Precandidato / Entrevista</p>
+                          <p className="text-[10px] text-gray-500">Inserte datos solicitados</p>
                         </div>
-                    </div>
-                </div>
-                ) : (
-                <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                        <Skeleton className="h-4 w-20" style={{ backgroundColor: `${project.color}40`}} />
-                        <Skeleton className="h-4 w-12" style={{ backgroundColor: `${project.color}40`}} />
-                    </div>
-                    <Skeleton className="h-8 w-full" style={{ backgroundColor: `${project.color}20`}} />
-                    <div className="flex gap-2">
-                        <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
-                        <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
-                        <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
-                    </div>
-                </div>
-                )}
-            </div>
-            
-            {/* Mini Window 2 */}
-            <div className="border rounded-md p-4" style={{ borderColor: `${project.color}80` }}>
-                <h3 className="font-bold mb-2 text-sm">// Visor_Datos</h3>
-                <div className="space-y-3">
-                    <Skeleton className="h-8 w-full" style={{ backgroundColor: `${project.color}20`}} />
-                    <div className="flex justify-between">
-                        <Skeleton className="h-4 w-24" style={{ backgroundColor: `${project.color}40`}} />
-                        <Skeleton className="h-4 w-16" style={{ backgroundColor: `${project.color}40`}} />
-                    </div>
-                    <div className="space-y-2">
-                         <Skeleton className="h-12 w-full" style={{ backgroundColor: `${project.color}20`}} />
-                         <Skeleton className="h-12 w-full" style={{ backgroundColor: `${project.color}20`}} />
-                    </div>
-                </div>
-            </div>
+                      <div className="grid grid-cols-2 gap-2 text-[10px]">
+                          <div className="space-y-2">
+                              <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Nombre</label>
+                              <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                              <label className="flex items-center text-gray-600 mb-1"><Phone className="w-3 h-3 mr-1"/> Telefono</label>
+                              <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                              <label className="flex items-center text-gray-600 mb-1"><Calendar className="w-3 h-3 mr-1"/> Fecha</label>
+                              <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                          </div>
+                            <div className="space-y-2">
+                              <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Apellido</label>
+                              <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                              <label className="flex items-center text-gray-600 mb-1"><Briefcase className="w-3 h-3 mr-1"/> Entrevista</label>
+                              <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              ) : (
+              <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                      <Skeleton className="h-4 w-20" style={{ backgroundColor: `${project.color}40`}} />
+                      <Skeleton className="h-4 w-12" style={{ backgroundColor: `${project.color}40`}} />
+                  </div>
+                  <Skeleton className="h-8 w-full" style={{ backgroundColor: `${project.color}20`}} />
+                  <div className="flex gap-2">
+                      <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
+      
+                      <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
+                      <Skeleton className="h-16 w-1/3" style={{ backgroundColor: `${project.color}20`}} />
+                  </div>
+              </div>
+              )}
+          </div>
         </div>
       </div>
     </DialogContent>
   );
 }
-
-    
