@@ -60,8 +60,10 @@ const ProjectsSection = () => {
             <DialogTrigger asChild>
               <div className="cursor-pointer">
                 <Card 
-                  className="group overflow-hidden border-2 rounded-[25px] border-primary/30 bg-card transition-all hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] h-full flex flex-col"
-                  style={{'--project-color': project.color} as React.CSSProperties}
+                  className="group overflow-hidden border-2 rounded-[25px] bg-card transition-all h-full flex flex-col"
+                  style={{'--project-color': project.color, borderColor: 'hsl(var(--primary)/0.3)'} as React.CSSProperties}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = project.color}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'hsl(var(--primary)/0.3)'}
                 >
                   <CardHeader className="p-0">
                     {project.image && (
