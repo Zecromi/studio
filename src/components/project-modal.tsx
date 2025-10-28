@@ -77,7 +77,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
             
             {/* Mini Window 2 */}
             <div className="border rounded-md p-4" style={{ borderColor: `${project.color}80` }}>
-                <h3 className="font-bold mb-2 text-sm">// Status_Sistema</h3>
+                <h3 className="font-bold mb-2 text-sm">// Visor_Datos</h3>
                  <div className="space-y-3">
                     <Skeleton className="h-4 w-full" style={{ backgroundColor: `${project.color}20`}} />
                     <Skeleton className="h-4 w-full" style={{ backgroundColor: `${project.color}20`}} />
