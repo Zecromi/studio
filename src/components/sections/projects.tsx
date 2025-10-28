@@ -27,7 +27,7 @@ const projects = [
     description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
     tags: ["ASP.NET", "SQL Server", "C#"],
     image: PlaceHolderImages.find(img => img.id === 'project-2'),
-    color: "hsl(236, 58.90%, 27.60%)",
+    color: "hsl(236, 59.70%, 52.40%)",
     liveUrl: "#",
   },
   {
@@ -60,12 +60,12 @@ const ProjectsSection = () => {
             <DialogTrigger asChild>
               <div className="cursor-pointer">
                 <Card 
-                  className="group overflow-hidden border-primary/30 bg-card transition-all hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] h-full flex flex-col"
+                  className="group overflow-hidden border-2 border-primary/30 bg-card transition-all hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] h-full flex flex-col"
                   style={{'--project-color': project.color} as React.CSSProperties}
                 >
                   <CardHeader className="p-0">
                     {project.image && (
-                      <div className="overflow-hidden rounded-t-lg border-b border-primary/30 group-hover:border-[var(--project-color)]">
+                      <div className="overflow-hidden rounded-t-lg border-b-2 border-primary/30 group-hover:border-[var(--project-color)]">
                           <Image
                             src={project.image.imageUrl}
                             alt={project.image.description}
