@@ -40,8 +40,8 @@ export function ProjectModal({ project }: ProjectModalProps) {
         </button>
       </header>
       
-      <div className="p-6 overflow-y-auto flex-grow grid-background flex justify-center items-center">
-        <div className="w-full max-w-lg">
+      <div className="p-6 overflow-y-auto flex-grow grid-background flex justify-center">
+        <div className="w-full">
           <h2 className="text-2xl mb-2">{project.title}</h2>
           <p className="text-foreground/80 mb-4">{project.description}</p>
           <div className="flex flex-wrap gap-2 mb-6">
