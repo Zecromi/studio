@@ -26,8 +26,10 @@ export function ProjectModal({ project }: ProjectModalProps) {
         style={{ 
             borderColor: project.color,
             color: project.color,
-            boxShadow: `0 0 30px ${project.color}33`
-        }}
+            boxShadow: `0 0 30px ${project.color}33`,
+            '--scrollbar-thumb-color': project.color,
+            '--scrollbar-track-color': 'transparent'
+        } as React.CSSProperties}
     >
       <DialogTitle className="sr-only">{project.title}</DialogTitle>
       <header className="flex items-center justify-between p-4 border-b-2" style={{ borderColor: project.color }}>
@@ -40,7 +42,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
         </button>
       </header>
       
-      <div className="p-6 overflow-y-auto flex-grow grid-background flex justify-center">
+      <div className="p-6 custom-scrollbar overflow-y-auto flex-grow grid-background">
         <div className="w-full">
           <h2 className="text-2xl mb-2">{project.title}</h2>
           <p className="text-foreground/80 mb-4">{project.description}</p>
