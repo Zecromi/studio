@@ -4,7 +4,7 @@
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X, Briefcase, User, Phone, Calendar } from "lucide-react";
+import { ExternalLink, X, Briefcase, User, Phone, Calendar, FileText } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Project = {
@@ -96,6 +96,35 @@ export function ProjectModal({ project }: ProjectModalProps) {
                       </div>
                   </div>
               </div>
+              ) : project.title === 'Web Candidatos' ? (
+                <div className="h-full w-full bg-white rounded-lg font-sans text-xs text-gray-800">
+                  <div className="bg-[#2c3e50] text-white p-4 rounded-t-lg text-center">
+                    <Briefcase className="w-8 h-8 mx-auto mb-2" />
+                    <h4 className="text-xl font-serif">Solicitud de Empleo</h4>
+                    <p className="text-xs text-gray-300">Ingresa la siguiente información para realizar tu solicitud de empleo:</p>
+                    <div className="inline-block bg-green-300 text-green-900 text-[10px] px-2 py-0.5 rounded-full mt-2">290323020811</div>
+                  </div>
+                  <div className="bg-gray-100 p-2 text-[10px]">
+                    <div className="flex space-x-1">
+                      <button className="bg-[#2c3e50] text-white px-2 py-1 rounded-t-md">Documentos</button>
+                      {['Datos Personales', 'Escolaridad', 'Empleos', 'Socioeconomico', 'No Conflicto Intereses', 'Bienes', 'Aviso Privacidad'].map(tab => (
+                        <button key={tab} className="text-gray-500 px-2 py-1 rounded-t-md bg-gray-200">{tab}</button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-start gap-3">
+                      <FileText className="w-10 h-10 text-[#2c3e50]" />
+                      <div>
+                        <h5 className="text-2xl font-serif text-gray-600 mb-1">Documentos</h5>
+                        <p className="text-[10px] text-gray-500 mb-2">Si todos los documentos fueron cargados correctamente, continue el proceso en la pestaña (Datos personales)</p>
+                        <p className="text-[10px] text-gray-600">
+                          Documentos cargados actualmente: CV, Acta de Nacimiento, Comprobante de domicilio, IMSS, Comprobante estudios, Constancia Fiscal, Buro Credito, Identificación, Curp, Fotografia, Carta o Constancia
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ) : (
               <div className="space-y-3">
                   <div className="flex items-center justify-between">
