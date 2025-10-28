@@ -34,7 +34,7 @@ const HeroSection = () => {
   const iconTransform = {
     transform: `translateY(${offsetY * 0.2}px) translateX(${-mousePosition.x * 0.05}px) translateY(${-mousePosition.y * 0.03}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'drop-shadow(-25px 15px 6px hsl(var(--primary) / 0.5))'
+    filter: 'drop-shadow(-175px 150px 6px hsl(var(--primary) / 0.5))'
   
   };
 
