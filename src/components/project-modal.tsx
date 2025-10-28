@@ -1,7 +1,7 @@
 
 "use client";
 
-import { DialogContent } from "@/components/ui/dialog";
+import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, X } from "lucide-react";
@@ -29,6 +29,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
             boxShadow: `0 0 30px ${project.color}33`
         }}
     >
+      <DialogTitle className="sr-only">{project.title}</DialogTitle>
       <header className="flex items-center justify-between p-4 border-b-2" style={{ borderColor: project.color }}>
         <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: project.color }}></div>
