@@ -40,7 +40,7 @@ export function ProjectModal({ project }: ProjectModalProps) {
       </header>
       
       <div className="p-6 overflow-y-auto flex-grow grid-background">
-        <h2 className="text-3xl font-bold text-glow mb-2" style={{ color: project.color }}>{project.title}</h2>
+        <h2 className="text-3xl mb-2" style={{ color: project.color }}>{project.title}</h2>
         <p className="text-foreground/80 mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
