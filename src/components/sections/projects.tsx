@@ -60,12 +60,12 @@ const ProjectsSection = () => {
             <DialogTrigger asChild>
               <div className="cursor-pointer">
                 <Card 
-                  className="group overflow-hidden border-2 border-primary/30 bg-card transition-all hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] h-full flex flex-col"
+                  className="group overflow-hidden border-2 rounded-[25px] border-primary/30 bg-card transition-all hover:border-primary hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] h-full flex flex-col"
                   style={{'--project-color': project.color} as React.CSSProperties}
                 >
                   <CardHeader className="p-0">
                     {project.image && (
-                      <div className="overflow-hidden rounded-t-lg border-b-2 border-primary/30 group-hover:border-[var(--project-color)]">
+                      <div className="overflow-hidden rounded-t-[23px] border-b-2 border-primary/30 group-hover:border-[var(--project-color)]">
                           <Image
                             src={project.image.imageUrl}
                             alt={project.image.description}
