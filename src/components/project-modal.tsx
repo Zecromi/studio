@@ -4,7 +4,7 @@
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X, Search, Filter, Briefcase, UserPlus, FileText } from "lucide-react";
+import { ExternalLink, X, Search, Filter, Briefcase, UserPlus, FileText, User, Phone, Calendar } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Project = {
@@ -77,13 +77,19 @@ export function ProjectModal({ project }: ProjectModalProps) {
                             <p className="font-serif text-sm">Precandidato / Entrevista</p>
                             <p className="text-[10px] text-gray-500">Inserte datos solicitados</p>
                          </div>
-                        <div className="flex gap-2 text-[10px]">
-                            <div className="w-1/2">
-                                <label className="flex items-center text-gray-600 mb-1"><Search className="w-3 h-3 mr-1"/> Ingrese datos</label>
+                        <div className="grid grid-cols-2 gap-2 text-[10px]">
+                            <div className="space-y-2">
+                                <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Nombre</label>
+                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                                <label className="flex items-center text-gray-600 mb-1"><Phone className="w-3 h-3 mr-1"/> Telefono</label>
+                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                                <label className="flex items-center text-gray-600 mb-1"><Calendar className="w-3 h-3 mr-1"/> Fecha</label>
                                 <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
                             </div>
-                            <div className="w-1/2">
-                                 <label className="flex items-center text-gray-600 mb-1"><Filter className="w-3 h-3 mr-1"/> Filtro</label>
+                             <div className="space-y-2">
+                                <label className="flex items-center text-gray-600 mb-1"><User className="w-3 h-3 mr-1"/> Apellido</label>
+                                <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
+                                <label className="flex items-center text-gray-600 mb-1"><Briefcase className="w-3 h-3 mr-1"/> Entrevista</label>
                                 <div className="w-full bg-white border border-gray-200 rounded-md h-5"></div>
                             </div>
                         </div>
@@ -108,12 +114,15 @@ export function ProjectModal({ project }: ProjectModalProps) {
             {/* Mini Window 2 */}
             <div className="border rounded-md p-4" style={{ borderColor: `${project.color}80` }}>
                 <h3 className="font-bold mb-2 text-sm">// Visor_Datos</h3>
-                 <div className="space-y-3">
-                    <Skeleton className="h-4 w-24" style={{ backgroundColor: `${project.color}40`}} />
-                    <Skeleton className="h-24 w-full" style={{ backgroundColor: `${project.color}20`}} />
-                    <div className="flex justify-end gap-2">
-                         <Skeleton className="h-6 w-16" style={{ backgroundColor: `${project.color}30`}} />
-                         <Skeleton className="h-6 w-16" style={{ backgroundColor: `${project.color}30`}} />
+                <div className="space-y-3">
+                    <Skeleton className="h-8 w-full" style={{ backgroundColor: `${project.color}20`}} />
+                    <div className="flex justify-between">
+                        <Skeleton className="h-4 w-24" style={{ backgroundColor: `${project.color}40`}} />
+                        <Skeleton className="h-4 w-16" style={{ backgroundColor: `${project.color}40`}} />
+                    </div>
+                    <div className="space-y-2">
+                         <Skeleton className="h-12 w-full" style={{ backgroundColor: `${project.color}20`}} />
+                         <Skeleton className="h-12 w-full" style={{ backgroundColor: `${project.color}20`}} />
                     </div>
                 </div>
             </div>
