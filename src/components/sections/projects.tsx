@@ -8,7 +8,7 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star, UserRound, Heart, Brain} from "lucide-react";
 
 
 const projects = [
@@ -36,7 +36,7 @@ const projects = [
     },
     color: "hsl(236, 59.70%, 52.40%)",
     liveUrl: "#",
-    icon: ExternalLink,
+    icon: UserRound,
   },
   {
     title: "Gespa Web",
@@ -49,7 +49,7 @@ const projects = [
     },
     color: "hsl(0, 100.00%, 50.00%)",
     liveUrl: "#",
-    icon: ExternalLink,
+    icon: Heart,
   },
   {
     title: "Coorin Web",
@@ -62,7 +62,7 @@ const projects = [
     },
     color: "hsl(150, 56.70%, 35.30%)",
     liveUrl: "#",
-    icon: ExternalLink,
+    icon: Brain,
   }
 ];
 
@@ -97,7 +97,7 @@ const ProjectsSection = () => {
                               className="h-full w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <Icon className="w-12 h-12 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                              <Icon className="w-12 h-12 text-[var(--project-color)] transform group-hover:scale-110 transition-transform duration-300" style={{ filter: `drop-shadow(0 0 8px ${project.color})`}}/>
                             </div>
                         </div>
                       )}
