@@ -4,7 +4,7 @@
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X, Briefcase, User, Phone, Calendar, FileText } from "lucide-react";
+import { ExternalLink, X, Briefcase, User, Phone, Calendar, FileText, Menu, Heart, Mail, Cog, Search, Calculator, Bell, CheckCircle2, SlidersHorizontal, Share2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Project = {
@@ -122,6 +122,83 @@ export function ProjectModal({ project }: ProjectModalProps) {
                           Documentos cargados actualmente: CV, Acta de Nacimiento, Comprobante de domicilio, IMSS, Comprobante estudios, Constancia Fiscal, Buro Credito, Identificación, Curp, Fotografia, Carta o Constancia
                         </p>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              ) : project.title === 'Gespa Web' ? (
+                <div className="h-full w-full bg-[#181a1b] rounded-md p-3 text-white font-sans text-[10px] leading-tight flex flex-col gap-2">
+                  <div className="flex items-center justify-between bg-[#111] p-1 rounded-sm text-xs">
+                    <div className="flex items-center gap-2">
+                      <Menu className="w-4 h-4"/>
+                      <Heart className="w-4 h-4 text-red-500" />
+                      <span className="font-bold">GESPA</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-gray-400 text-[9px] flex-wrap">
+                      <span>Productividad</span><span>/</span><span>Recuperación</span><span>/</span><span>Tiempos</span><span>/</span><span>Simulador</span><span>/</span><span>Información</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="text-gray-400">05:58:53</div>
+                      <div className="flex items-center bg-[#222] border border-gray-600 rounded-sm">
+                        <Search className="w-3 h-3 mx-1"/>
+                        <span className="text-gray-500">Buscar...</span>
+                        <div className="w-10 h-4"/>
+                      </div>
+                      <div className="bg-gray-700 rounded-full w-5 h-5"/>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-grow grid grid-cols-3 gap-2">
+                    <div className="col-span-2 flex flex-col gap-2">
+                      <div className="grid grid-cols-3 gap-2 text-xs">
+                        <div className="bg-[#222] p-2 rounded-md flex items-center gap-2"><Mail className="w-4 h-4"/> American Express</div>
+                        <div className="bg-[#222] p-2 rounded-md flex items-center gap-2"><Phone className="w-4 h-4"/> Vicidial</div>
+                        <div className="bg-[#222] p-2 rounded-md flex items-center gap-2"><Heart className="w-4 h-4"/> Situación</div>
+                      </div>
+                      <div className="bg-[#222] p-2 rounded-md flex-grow">
+                        <div className="flex justify-between items-center text-gray-400 mb-1">
+                          <div className="flex items-center gap-1"><User className="w-3 h-3" /> -</div>
+                          <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-3 h-3 text-blue-500"/>
+                            <div className="w-3 h-3 bg-green-500 rounded-sm"/>
+                            <Cog className="w-3 h-3" />
+                          </div>
+                        </div>
+                        <div className="text-gray-500 grid grid-cols-3 gap-1 text-[8px]">
+                          <span>Producto: --</span><span>Activacia: --</span><span>Expediente: AMX--</span>
+                          <span>No. Cliente: --</span><span>RFC: --</span><span>Edad: --</span>
+                        </div>
+                      </div>
+                      <div className="bg-[#222] p-2 rounded-md">
+                        <div className="flex justify-between items-center mb-1">
+                           <Phone className="w-4 h-4" />
+                           <div className="flex items-center">
+                             <div className="bg-gray-700 border border-gray-600 rounded-l-sm px-2 py-0.5 text-blue-400"><Phone className="w-3 h-3"/></div>
+                             <div className="bg-gray-800 border-y border-gray-600 px-2 text-gray-400">Número de teléfono</div>
+                             <button className="bg-gray-700 border border-gray-600 rounded-r-sm px-2">Validar</button>
+                           </div>
+                        </div>
+                        <div className="grid grid-cols-9 text-center font-bold text-gray-500 border-b border-gray-600 pb-1 text-[8px]">
+                          <span>T</span><span>C</span><span>D</span><span>S</span><span>ID</span><span>TELEFÓNO</span><span>TELEFONÍA</span><span>ORIGEN</span><span>CLASE</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-span-1 flex flex-col gap-2">
+                       <div className="bg-[#222] p-2 rounded-md flex-grow">
+                          <div className="flex justify-between items-center text-gray-400 mb-2">
+                            <span>0 Cuentas</span>
+                            <Share2 className="w-3 h-3"/>
+                          </div>
+                          <p className="text-gray-500">Selecciona una cuenta para trabajar en el flujo</p>
+                       </div>
+                       <div className="grid grid-cols-2 gap-2 text-xs">
+                          <button className="bg-green-800/50 border border-green-500 p-1 rounded-md flex items-center justify-center gap-1"><Calculator className="w-3 h-3"/> Calculadora</button>
+                          <button className="bg-blue-800/50 border border-blue-500 p-1 rounded-md flex items-center justify-center gap-1"><Calendar className="w-3 h-3"/> Calendario</button>
+                       </div>
+                       <div className="bg-[#222] p-2 rounded-md">
+                          <div className="flex items-center gap-1 mb-2 text-gray-400"><Bell className="w-3 h-3"/> Mis Recordatorios</div>
+                          <p className="text-gray-500 text-center">No hay recordatorios para la fecha seleccionada.</p>
+                       </div>
                     </div>
                   </div>
                 </div>
