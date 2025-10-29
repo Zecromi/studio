@@ -93,7 +93,7 @@ const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
               <div className="inline-block bg-green-300 text-green-900 text-[10px] px-2 py-0.5 rounded-full mt-2">290323020811</div>
             </div>
             <div className="p-2 text-[10px] overflow-x-auto">
-              <div className="flex space-x-1">
+              <div className="flex flex-wrap space-x-1">
                 <button className="bg-[#2c3e50] text-white px-2 py-1 rounded-t-md whitespace-nowrap">Documentos</button>
                 {['Datos Personales', 'Escolaridad', 'Empleos', 'Socioeconomico', 'No Conflicto Intereses', 'Bienes', 'Aviso Privacidad'].map(tab => (
                   <button key={tab} className="text-gray-500 px-2 py-1 rounded-t-md bg-gray-200 whitespace-nowrap">{tab}</button>
@@ -233,7 +233,7 @@ const ProjectsSection = () => {
                   >
                     <CardHeader className="p-0 relative">
                       <div className="overflow-hidden rounded-t-[23px] border-b-2 border-primary/30 group-hover:border-[var(--project-color)] relative aspect-[3/2]">
-                          <div className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 grayscale group-hover:grayscale-0">
+                          <div className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 grayscale group-hover:grayscale-0 blur-sm group-hover:blur-0">
                             <ProjectPreview project={project} />
                           </div>
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
