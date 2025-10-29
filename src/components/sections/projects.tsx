@@ -7,7 +7,7 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
-import { ExternalLink, Star, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal } from "lucide-react";
+import { ExternalLink, Star, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal } from "lucide-react";
 
 
 const projects = [
