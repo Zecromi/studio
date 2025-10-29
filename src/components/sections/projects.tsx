@@ -8,6 +8,7 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
+import { ExternalLink } from "lucide-react";
 
 
 const projects = [
@@ -16,7 +17,7 @@ const projects = [
     description: "Página para el área de recursos humanos desarrollada en ASP.NET para la gestión y control de los empleados de la empresa.",
     tags: ["ASP.NET", "SQL Server", "C#"],
     image: {
-      imageUrl: "/Gestalh.svg",
+      imageUrl: "/wavegestalh.svg",
       description: "Gestalh project logo",
       imageHint: "abstract pattern",
     },
@@ -28,7 +29,7 @@ const projects = [
     description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
     tags: ["ASP.NET", "SQL Server", "C#"],
     image: {
-      imageUrl: "/WebCandidatos.svg",
+      imageUrl: "/waveWebCand.svg",
       description: "Web Candidatos project logo",
       imageHint: "abstract pattern",
     },
@@ -40,7 +41,7 @@ const projects = [
     description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
     tags: ["React", "BootstrapReact", "Sass", "Axios","NodeJs"],
     image: {
-      imageUrl: "/Gespa.svg",
+      imageUrl: "/waveGespa.svg",
       description: "Gespa Web project logo",
       imageHint: "abstract pattern",
     },
@@ -52,7 +53,7 @@ const projects = [
     description: "Pagina para la consulta de cuentas, como migración de un aplicativo interno, a pagina web",
     tags: ["React", "Tailwind", "Preline"],
     image: {
-      imageUrl: "/Coorin.svg",
+      imageUrl: "/waveCoorin.svg",
       description: "Coorin Web project logo",
       imageHint: "abstract pattern",
     },
@@ -78,9 +79,9 @@ const ProjectsSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.borderColor = project.color}
                   onMouseLeave={(e) => e.currentTarget.style.borderColor = 'hsl(var(--primary)/0.3)'}
                 >
-                  <CardHeader className="p-0">
+                  <CardHeader className="p-0 relative">
                     {project.image && (
-                      <div className="overflow-hidden rounded-t-[23px] border-b-2 border-primary/30 group-hover:border-[var(--project-color)]">
+                      <div className="overflow-hidden rounded-t-[23px] border-b-2 border-primary/30 group-hover:border-[var(--project-color)] relative">
                           <Image
                             src={project.image.imageUrl}
                             alt={project.image.description}
@@ -89,6 +90,9 @@ const ProjectsSection = () => {
                             data-ai-hint={project.image.imageHint}
                             className="h-full w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
                           />
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <ExternalLink className="w-12 h-12 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                          </div>
                       </div>
                     )}
                   </CardHeader>
