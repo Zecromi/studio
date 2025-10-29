@@ -236,6 +236,7 @@ const ProjectsSection = () => {
                           <div className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 grayscale group-hover:grayscale-0 blur-sm group-hover:blur-0">
                             <ProjectPreview project={project} />
                           </div>
+                          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-300"></div>
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <Icon className="w-12 h-12 text-[var(--project-color)] transform group-hover:scale-110 transition-transform duration-300" style={{ filter: `drop-shadow(0 0 8px ${project.color})`}}/>
                           </div>
