@@ -4,11 +4,8 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, X } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { TypewriterText } from "@/components/typewriter-text";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
 
@@ -18,7 +15,11 @@ const projects = [
     title: "Gestalh",
     description: "Página para el área de recursos humanos desarrollada en ASP.NET para la gestión y control de los empleados de la empresa.",
     tags: ["ASP.NET", "SQL Server", "C#"],
-    image: PlaceHolderImages.find(img => img.id === 'project-1'),
+    image: {
+      imageUrl: "/Gestalh.svg",
+      description: "Gestalh project logo",
+      imageHint: "abstract pattern",
+    },
     color: "hsl(180, 50%, 40%)",
     liveUrl: "#",
   },
@@ -26,7 +27,11 @@ const projects = [
     title: "Web Candidatos",
     description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
     tags: ["ASP.NET", "SQL Server", "C#"],
-    image: PlaceHolderImages.find(img => img.id === 'project-2'),
+    image: {
+      imageUrl: "/WebCandidatos.svg",
+      description: "Web Candidatos project logo",
+      imageHint: "abstract pattern",
+    },
     color: "hsl(236, 59.70%, 52.40%)",
     liveUrl: "#",
   },
@@ -34,7 +39,11 @@ const projects = [
     title: "Gespa Web",
     description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
     tags: ["React", "BootstrapReact", "Sass", "Axios","NodeJs"],
-    image: PlaceHolderImages.find(img => img.id === 'project-3'),
+    image: {
+      imageUrl: "/Gespa.svg",
+      description: "Gespa Web project logo",
+      imageHint: "abstract pattern",
+    },
     color: "hsl(0, 100.00%, 50.00%)",
     liveUrl: "#",
   },
@@ -42,7 +51,11 @@ const projects = [
     title: "Coorin Web",
     description: "Pagina para la consulta de cuentas, como migración de un aplicativo interno, a pagina web",
     tags: ["React", "Tailwind", "Preline"],
-    image: PlaceHolderImages.find(img => img.id === 'project-4'),
+    image: {
+      imageUrl: "/Coorin.svg",
+      description: "Coorin Web project logo",
+      imageHint: "abstract pattern",
+    },
     color: "hsl(150, 56.70%, 35.30%)",
     liveUrl: "#",
   }
@@ -60,7 +73,7 @@ const ProjectsSection = () => {
             <DialogTrigger asChild>
               <div className="cursor-pointer">
                 <Card 
-                  className="group overflow-hidden border-2 rounded-[25px] bg-card transition-all h-full flex flex-col"
+                  className="group overflow-hidden rounded-[25px] bg-card transition-all h-full flex flex-col"
                   style={{'--project-color': project.color, borderColor: 'hsl(var(--primary)/0.3)'} as React.CSSProperties}
                   onMouseEnter={(e) => e.currentTarget.style.borderColor = project.color}
                   onMouseLeave={(e) => e.currentTarget.style.borderColor = 'hsl(var(--primary)/0.3)'}
