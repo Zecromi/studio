@@ -39,7 +39,9 @@
     --sidebar-border: 120 100% 25%;
     --sidebar-ring: 120 100% 60%;
     --warning: 45 95% 50%;
+    --warning-foreground: 240 10% 3.9%;
     --info: 210 95% 60%;
+    --info-foreground: 240 10% 3.9%;
   }
 
   .light {
@@ -76,7 +78,9 @@
     --sidebar-border: 0 0% 30%;
     --sidebar-ring: 0 0% 30%;
     --warning: 38 92% 50%;
+    --warning-foreground: 48 83% 94%;
     --info: 200 90% 45%;
+    --info-foreground: 48 83% 94%;
   }
 }
 
@@ -212,3 +216,4 @@
   80% { transform: translate(2px, -2px); }
   100% { transform: translate(0); }
 }
+
