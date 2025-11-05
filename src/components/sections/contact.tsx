@@ -80,59 +80,63 @@ const ContactSection = () => {
       <h2 className="mb-8 text-3xl font-bold md:text-4xl">
         <TypewriterText text="> Contacto..." />
       </h2>
-      <div className="relative mx-auto max-w-2xl rounded-lg border border-primary/50 bg-card p-6 shadow-[0_0_20px_hsl(var(--primary)/0.1)] overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none p-8">
-            <LuckyCatSvg />
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-2">
+        <div className="relative rounded-lg border border-primary/50 bg-card p-6 shadow-[0_0_20px_hsl(var(--primary)/0.1)]">
+          <Form {...form}>
+            <form
+              ref={formRef}
+              action={formAction}
+              className="space-y-6"
+              key={state?.resetKey}
+            >
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-primary">// Tu_Alias</FormLabel>
+                    <FormControl>
+                      <Input placeholder="> Ingresa tu alias..." {...field} className="bg-background/50 focus:bg-background z-10 relative" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-primary">// Comando_Seguridad (Correo)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="> Ingresa comando..." {...field} className="bg-background/50 focus:bg-background z-10 relative" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-primary">// Base de datos (Mensaje)</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="> Que deseas transmitir..." {...field} className="min-h-[150px] bg-background/50 focus:bg-background z-10 relative" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <SubmitButton />
+            </form>
+          </Form>
         </div>
-        <Form {...form}>
-          <form
-            ref={formRef}
-            action={formAction}
-            className="space-y-6"
-            key={state?.resetKey}
-          >
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-primary">// Tu_Alias</FormLabel>
-                  <FormControl>
-                    <Input placeholder="> Ingresa tu alias..." {...field} className="bg-background/50 focus:bg-background z-10 relative" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-primary">// Comando_Seguridad (Correo)</FormLabel>
-                  <FormControl>
-                    <Input placeholder="> Ingresa comando..." {...field} className="bg-background/50 focus:bg-background z-10 relative" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-primary">// Base de datos (Mensaje)</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="> Que deseas transmitir..." {...field} className="min-h-[150px] bg-background/50 focus:bg-background z-10 relative" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <SubmitButton />
-          </form>
-        </Form>
+        <div className="hidden md:block">
+          <div className="w-full max-w-sm mx-auto opacity-20 pointer-events-none">
+            <LuckyCatSvg />
+          </div>
+        </div>
       </div>
     </section>
   );
