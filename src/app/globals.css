@@ -174,15 +174,19 @@
   }
   .text-secondary {
     color: hsl(var(--secondary));
+    text-shadow: 0 0 5px hsl(var(--secondary) / 0.7), 0 0 10px hsl(var(--secondary) / 0.5);
   }
   .text-warning {
     color: hsl(var(--warning));
+    text-shadow: 0 0 5px hsl(var(--warning) / 0.7), 0 0 10px hsl(var(--warning) / 0.5);
   }
   .text-error {
     color: hsl(var(--destructive));
+    text-shadow: 0 0 5px hsl(var(--destructive) / 0.7), 0 0 10px hsl(var(--destructive) / 0.5);
   }
   .text-info {
     color: hsl(var(--info));
+    text-shadow: 0 0 5px hsl(var(--info) / 0.7), 0 0 10px hsl(var(--info) / 0.5);
   }
 }
 
