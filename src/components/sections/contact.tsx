@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { TypewriterText } from "@/components/typewriter-text";
-import LuckyCat from "@/public/luckycat.svg"
+import LuckyCat from "../../../public/luckycat.svg"
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Tu alias es requerido (minimo 2 caracteres)." }),
