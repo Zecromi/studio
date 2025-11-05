@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { TypewriterText } from "@/components/typewriter-text";
-
+import LuckyCat from "@/public/luckycat.svg"
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Tu alias es requerido (minimo 2 caracteres)." }),
@@ -31,20 +31,7 @@ function SubmitButton() {
 }
 
 const LuckyCatSvg = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-full h-full text-primary">
-        <g fill="currentColor">
-            <path d="M50,95c-24.8,0-45-20.2-45-45S25.2,5,50,5s45,20.2,45,45S74.8,95,50,95z M50,15c-19.3,0-35,15.7-35,35s15.7,35,35,35 s35-15.7,35-35S69.3,15,50,15z" />
-            <path d="M60,45h-5c0-11-9-20-20-20v-5C46.6,20,60,31.4,60,45z" />
-            <path d="M70,60c-3.3,0-6-2.7-6-6h-5c0,6.1,4.9,11,11,11V60z" />
-            <path d="M35,60c-3.3,0-6-2.7-6-6h-5c0,6.1,4.9,11,11,11V60z" />
-            <ellipse cx="40" cy="70" rx="3" ry="2" />
-            <ellipse cx="60" cy="70" rx="3" ry="2" />
-            <path d="M50,80c-5,0-9-4-9-9h18C59,76,55,80,50,80z" />
-            <circle cx="35" cy="50" r="3" />
-            <circle cx="65" cy="50" r="3" />
-            <path d="M80,40c-2.8,0-5,2.2-5,5v10h5c2.8,0,5-2.2,5-5S82.8,40,80,40z" />
-        </g>
-    </svg>
+   <LuckyCat className="w-full max-w-sm mx-auto" />
 );
 
 const ContactSection = () => {
