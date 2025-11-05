@@ -54,13 +54,13 @@
     --primary: 0 0% 30%;
     --primary-foreground: 48 83% 94%;
     --secondary: 267 100% 70%;
-    --secondary-foreground: 48 83% 94%;
+    --secondary-foreground: 267 100% 70%;
     --muted: 0 0% 93%;
     --muted-foreground: 0 0% 40%;
     --accent: 0 0% 30%;
     --accent-foreground: 48 83% 94%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 84.2% 60.2%;
     --border: 0 0% 30%;
     --input: 0 0% 89%;
     --ring: 0 0% 30%;
@@ -78,9 +78,9 @@
     --sidebar-border: 0 0% 30%;
     --sidebar-ring: 0 0% 30%;
     --warning: 38 92% 50%;
-    --warning-foreground: 48 83% 94%;
+    --warning-foreground: 38 92% 50%;
     --info: 200 90% 45%;
-    --info-foreground: 48 83% 94%;
+    --info-foreground: 200 90% 45%;
   }
 }
 
@@ -136,7 +136,6 @@
     background-image:
       linear-gradient(hsla(var(--primary), 0.07) 1px, transparent 1px),
       linear-gradient(to right, hsla(var(--primary), 0.07) 1px, transparent 1px);
-    background-size: 2rem 2rem;
   }
 
   .light .grid-background {
