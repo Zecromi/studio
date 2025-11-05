@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { TypewriterText } from "@/components/typewriter-text";
-import LuckyCat from "../../../public/luckycat.svg";
+import Image from "next/image";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Tu alias es requerido (minimo 2 caracteres)." }),
@@ -31,8 +31,15 @@ function SubmitButton() {
 }
 
 const LuckyCatSvg = () => (
-   <LuckyCat className="w-full max-w-sm mx-auto" />
+    <Image 
+      src="/luckycat.svg" 
+      alt="Lucky Cat" 
+      width={400} 
+      height={400} 
+      className="w-full max-w-sm mx-auto" 
+    />
 );
+
 
 const ContactSection = () => {
   const { toast } = useToast();
