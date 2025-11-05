@@ -110,7 +110,7 @@ const HeroSection = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-2">
           <Badge variant="outline" className="border-primary/50 text-primary"> Desarrollador Full-Stack</Badge>
-          <Badge variant="outline" className="border-primary/50 text-primary">Entusiasta UI/UX</Badge>
+          <Badge variant="outline" className="border-secondary/50 text-secondary">Entusiasta UI/UX</Badge>
           
         </div>
       </div>
