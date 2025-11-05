@@ -38,6 +38,8 @@
     --sidebar-accent-foreground: 240 10% 3.9%;
     --sidebar-border: 120 100% 25%;
     --sidebar-ring: 120 100% 60%;
+    --warning: 45 95% 50%;
+    --info: 210 95% 60%;
   }
 
   .light {
@@ -73,6 +75,8 @@
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 30%;
     --sidebar-ring: 0 0% 30%;
+    --warning: 38 92% 50%;
+    --info: 200 90% 45%;
   }
 }
 
@@ -167,6 +171,18 @@
     background-color: var(--scrollbar-thumb-color);
     border-radius: 4px;
     border: 2px solid var(--scrollbar-track-color);
+  }
+  .text-secondary {
+    color: hsl(var(--secondary));
+  }
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+  .text-error {
+    color: hsl(var(--destructive));
+  }
+  .text-info {
+    color: hsl(var(--info));
   }
 }
 

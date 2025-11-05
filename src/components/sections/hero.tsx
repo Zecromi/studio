@@ -100,8 +100,11 @@ const HeroSection = () => {
             className="rounded-full border-2 border-primary shadow-[0_0_20px_hsl(var(--primary)/0.7)] mb-4"
         />
         <h1 className="text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl text-glow">
-          <TypewriterText text="オミup Omar OM" />
+          <TypewriterText text="Omar OM" />
         </h1>
+        <h3 className="text-2xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl text-glow">
+          <TypewriterText text="オミ" />
+        </h3>
         <p className="mx-auto max-w-[700px] text-lg text-foreground/80 md:text-xl">
           <TypewriterText text="Diseñador web y artesano digital" startDelay={1000} />
         </p>
