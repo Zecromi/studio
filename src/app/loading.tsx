@@ -18,7 +18,7 @@ export default function Loading() {
         />
       </div>
       <div className="mt-4">
-        <TypewriterText text="> INICIANDO SISTEMA..." delay={50} />
+        <TypewriterText text="> INICIANDO SISTEMA..." delay={75} />
       </div>
     </div>
   );
