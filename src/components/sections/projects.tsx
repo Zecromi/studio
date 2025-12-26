@@ -53,7 +53,7 @@ const projects = [
 
   {
     title: "Gimnasia",
-    description: "Pagina para control y administración de eventos de sitios de clubes deportivos",
+    description: "Pagina para control y administración de eventos de sitios de clubes deportivos del EDOMEX",
     tags: ["React", "Tailwind", "Shadcn","Axios","Zustand", "Next.JS", "TypeScript"],
     color: "hsl(0, 0.00%, 44.30%)",
     liveUrl: "#",

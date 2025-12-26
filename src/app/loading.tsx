@@ -1,35 +1,24 @@
 
 "use client";
 
+import Image from "next/image";
 import { TypewriterText } from "@/components/typewriter-text";
-import { Progress } from "@/components/ui/progress";
-import { useEffect, useState } from "react";
 
 export default function Loading() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 95) {
-          clearInterval(timer);
-          return 95;
-        }
-        return prev + 5;
-      });
-    }, 200);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center bg-background text-primary grid-background">
-      <div className="w-full max-w-md p-4">
-        <TypewriterText text="> INITIALIZING SYSTEM..." delay={50} />
-        <TypewriterText text="> LOADING INTERFACE..." delay={70} />
-        <div className="mt-4 flex items-center gap-4 text-lg">
-          <Progress value={progress} className="h-4 border border-primary/50 bg-primary/10 [&>div]:bg-primary" />
-          <span>{progress}%</span>
-        </div>
+    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background/50 backdrop-blur-md">
+      <div className="relative">
+        <Image
+          src="/CyberCat.png"
+          alt="Cybernetic Cat Loading"
+          width={120}
+          height={120}
+          className="animate-[pulse-glow_2s_ease-in-out_infinite] rounded-full"
+          priority
+        />
+      </div>
+      <div className="mt-4">
+        <TypewriterText text="> INICIANDO SISTEMA..." delay={50} />
       </div>
     </div>
   );
