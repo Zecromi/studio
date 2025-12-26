@@ -7,7 +7,7 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
-import { ExternalLink, Star,StarHalf, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal,Trophy, Award, Sparkles, Snowflake, Download } from "lucide-react";
+import { ExternalLink, Star,StarHalf, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal,Trophy, Award, Sparkles, Snowflake, Download, Filter, ArrowUpDown, Pencil, Landmark, Printer, ChevronDown } from "lucide-react";
 
 const projects = [
   {
@@ -333,6 +333,67 @@ const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
                       </div>
                     </div>
                   </div>
+                </div>
+              ) : project.title === 'Gimnasia' ? (
+                <div className="h-full w-full bg-[#181a1b] rounded-lg font-sans text-xs text-white flex">
+                    <div className="w-12 bg-black/20 flex flex-col items-center py-4 space-y-6">
+                        <Landmark className="w-6 h-6 text-gray-400" />
+                        <FileText className="w-5 h-5 text-gray-400" />
+                        <Users className="w-5 h-5 text-gray-400" />
+                        <Trophy className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <div className="flex-1 p-4 overflow-hidden">
+                        <h4 className="text-xl font-bold mb-4">Eventos</h4>
+                        <div className="bg-black/20 rounded-lg p-3 mb-3">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-[9px]">
+                                <div>
+                                    <label className="block text-gray-400 mb-1 text-[8px]">No. Evento:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-6"></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1 text-[8px]">Modalidad:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-6"></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1 text-[8px]">Pirámide:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-6"></div>
+                                </div>
+                                 <div>
+                                    <label className="block text-gray-400 mb-1 text-[8px]">Organizador:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-6"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-black/20 rounded-lg overflow-x-auto">
+                            <table className="w-full text-left text-[10px]">
+                                <thead>
+                                    <tr className="border-b border-gray-700">
+                                        <th className="p-2 text-[9px]">Detalle</th>
+                                        <th className="p-2 text-[9px]">No. Evento</th>
+                                        <th className="p-2 text-[9px]">Nombre</th>
+                                        <th className="p-2 text-[9px]">Lugar</th>
+                                        <th className="p-2 text-[9px]">Estatus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {[
+                                        { evt: "EVT-001", name: "Campeonato Nacional 2024", place: "Ciudad de México", status: "Abierto", statusColor: "text-green-400" },
+                                        { evt: "EVT-002", name: "Copa Regional Norte", place: "Monterrey", status: "En Curso", statusColor: "text-yellow-400" },
+                                        { evt: "EVT-003", name: "Torneo de Verano", place: "Guadalajara", status: "Cerrado", statusColor: "text-red-400" },
+                                    ].map(row => (
+                                    <tr key={row.evt} className="border-b border-gray-800">
+                                        <td className="p-2"><Pencil className="w-3 h-3 text-gray-400"/></td>
+                                        <td className="p-2">{row.evt}</td>
+                                        <td className="p-2">{row.name}</td>
+                                        <td className="p-2">{row.place}</td>
+                                        <td className={`p-2 ${row.statusColor}`}>{row.status}</td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
               ) : (
                 <div className="h-full w-full bg-background/50 p-4">

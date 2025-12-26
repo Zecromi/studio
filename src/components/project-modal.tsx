@@ -4,7 +4,7 @@
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X, Briefcase, User, Phone, Calendar, FileText, Menu, Heart, Mail, Cog, Search, Calculator, Bell, CheckCircle2, SlidersHorizontal, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, Star, Award, Sparkles, Snowflake, Download } from "lucide-react";
+import { ExternalLink, X, Briefcase, User, Phone, Calendar, FileText, Menu, Heart, Mail, Cog, Search, Calculator, Bell, CheckCircle2, SlidersHorizontal, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, Star, Award, Sparkles, Snowflake, Download, Trophy, Filter, ArrowUpDown, Pencil, Landmark, Printer, ChevronDown } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Project = {
@@ -331,6 +331,93 @@ export function ProjectModal({ project }: ProjectModalProps) {
                   </div>
                 </div>
               </div>
+              ) : project.title === 'Gimnasia' ? (
+                <div className="h-full w-full bg-[#181a1b] rounded-lg font-sans text-xs text-white flex">
+                    <div className="w-12 bg-black/20 flex flex-col items-center py-4 space-y-6">
+                        <Landmark className="w-6 h-6 text-gray-400" />
+                        <FileText className="w-5 h-5 text-gray-400" />
+                        <Users className="w-5 h-5 text-gray-400" />
+                        <Trophy className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <div className="flex-1 p-4">
+                        <h4 className="text-xl font-bold mb-4">Eventos</h4>
+                        <div className="bg-black/20 rounded-lg p-4 mb-4">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4 text-[10px]">
+                                <div>
+                                    <label className="block text-gray-400 mb-1">No. Evento:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7"></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1">Modalidad:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar</span><ChevronDown className="w-4 h-4" /></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1">Pirámide:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar</span><ChevronDown className="w-4 h-4" /></div>
+                                </div>
+                                 <div>
+                                    <label className="block text-gray-400 mb-1">Organizador:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar</span><ChevronDown className="w-4 h-4" /></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1">Tipo de evento:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar</span><ChevronDown className="w-4 h-4" /></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1">Región de evento:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar</span><ChevronDown className="w-4 h-4" /></div>
+                                </div>
+                                <div>
+                                    <label className="block text-gray-400 mb-1">Fecha de evento:</label>
+                                    <div className="w-full bg-[#2a2d2f] border border-gray-600 rounded-md h-7 flex items-center justify-between px-2 text-gray-400"><span>Seleccionar fecha</span><Calendar className="w-4 h-4" /></div>
+                                </div>
+                                <div className="flex items-end gap-2">
+                                     <button className="bg-[#08a081] text-white w-full h-7 rounded-md flex items-center justify-center gap-1"><Filter className="w-3 h-3"/>Filtrar</button>
+                                </div>
+                            </div>
+                             <div className="absolute right-8 top-28">
+                                <button className="bg-[#08a081] text-white w-8 h-8 rounded-full flex items-center justify-center gap-1"><Printer className="w-4 h-4"/></button>
+                            </div>
+                        </div>
+
+                        <div className="bg-black/20 rounded-lg overflow-x-auto">
+                            <table className="w-full text-left text-[10px]">
+                                <thead>
+                                    <tr className="border-b border-gray-700">
+                                        <th className="p-2">Detalle</th>
+                                        <th className="p-2">No. Evento</th>
+                                        <th className="p-2 flex items-center gap-1">Nombre <ArrowUpDown className="w-3 h-3"/></th>
+                                        <th className="p-2">Lugar</th>
+                                        <th className="p-2">Sede</th>
+                                        <th className="p-2">Fecha de evento</th>
+                                        <th className="p-2 flex items-center gap-1">¿Tiene restricción? <ArrowUpDown className="w-3 h-3"/></th>
+                                        <th className="p-2">Estatus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {[
+                                        { evt: "EVT-001", name: "Campeonato Nacional 2024", place: "Ciudad de México", sede: "Gimnasio Juan de la Barrera", date: "2024-05-15", restriction: "Sí", status: "Abierto", statusColor: "text-green-400" },
+                                        { evt: "EVT-002", name: "Copa Regional Norte", place: "Monterrey", sede: "Arena Monterrey", date: "2024-06-20", restriction: "No", status: "En Curso", statusColor: "text-yellow-400" },
+                                        { evt: "EVT-003", name: "Torneo de Verano", place: "Guadalajara", sede: "Polideportivo López Mateos", date: "2024-07-10", restriction: "No", status: "Cerrado", statusColor: "text-red-400" },
+                                        { evt: "EVT-004", name: "Gala de Invierno", place: "Puebla", sede: "Gimnasio Miguel Hidalgo", date: "2024-12-05", restriction: "Sí", status: "Abierto", statusColor: "text-green-400" },
+                                        { evt: "EVT-005", name: "Interclubes 2024", place: "Querétaro", sede: "Auditorio Josefa Ortiz", date: "2024-09-12", restriction: "No", status: "Cancelado", statusColor: "text-gray-400" },
+                                    ].map(row => (
+                                    <tr key={row.evt} className="border-b border-gray-800">
+                                        <td className="p-2"><Pencil className="w-3 h-3 text-gray-400"/></td>
+                                        <td className="p-2">{row.evt}</td>
+                                        <td className="p-2">{row.name}</td>
+                                        <td className="p-2">{row.place}</td>
+                                        <td className="p-2">{row.sede}</td>
+                                        <td className="p-2">{row.date}</td>
+                                        <td className="p-2">{row.restriction}</td>
+                                        <td className={`p-2 ${row.statusColor}`}>{row.status}</td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
               ) : (
               <div className="space-y-3">
                   <div className="flex items-center justify-between">
