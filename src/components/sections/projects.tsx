@@ -7,7 +7,7 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
-import { ExternalLink, Star, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal } from "lucide-react";
+import { ExternalLink, Star,StarHalf, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal,Trophy, Award, Sparkles, Snowflake, Download } from "lucide-react";
 
 const projects = [
   {
@@ -37,11 +37,29 @@ const projects = [
   {
     title: "Coorin Web",
     description: "Pagina para la consulta de cuentas, como migración de un aplicativo interno, a pagina web",
-    tags: ["React", "Tailwind", "Preline"],
+    tags: ["React", "Tailwind", "Preline","Axios"],
     color: "hsl(150, 56.70%, 35.30%)",
     liveUrl: "#",
     icon: Brain,
+  },
+  {
+    title: "Gestalh 2.0",
+    description: "Página para el área de recursos humanos, Contabilidad, Areas administrativas",
+    tags: ["React", "Tailwind", "Shadcn","Axios","Zustand", "Next.JS","WebHooks"],
+    color: "hsl(205, 56.70%, 35.30%)",
+    liveUrl: "#",
+    icon: StarHalf,
+  },
+
+  {
+    title: "Gimnasia",
+    description: "Pagina para control y administración de eventos de sitios de clubes deportivos",
+    tags: ["React", "Tailwind", "Shadcn","Axios","Zustand", "Next.JS", "TypeScript"],
+    color: "hsl(0, 0.00%, 44.30%)",
+    liveUrl: "#",
+    icon: Trophy,
   }
+
 ];
 
 const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
@@ -225,6 +243,93 @@ const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
                       <div className="bg-white rounded-lg p-3 border">
                         <p className="text-gray-600 font-bold mb-2 text-xs">Sesiones</p>
                         <div className="text-gray-500 text-center text-[10px] py-4">No hay sesiones disponibles</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : project.title === 'Gestalh 2.0' ? (
+                <div className="h-full w-full bg-[#f0f4f9] rounded-lg font-sans text-xs text-gray-800 flex">
+                  <div className="w-12 bg-white flex flex-col items-center py-4 space-y-6 border-r border-gray-200">
+                    <Star className="w-6 h-6 text-blue-800" />
+                    <Users className="w-5 h-5 text-gray-400" />
+                    <User className="w-5 h-5 text-gray-400" />
+                    <Cog className="w-5 h-5 text-gray-400" />
+                    <FileText className="w-5 h-5 text-gray-400" />
+                  </div>
+                  <div className="flex-1 p-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="col-span-2">
+                        <div className="bg-white rounded-xl p-4 shadow-sm" style={{backgroundImage: 'linear-gradient(to right, #e0f7fa, #e1f5fe)'}}>
+                          <div className="flex items-center">
+                            <div className="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center">
+                              <Star className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="ml-4">
+                              <p className="text-gray-600">Hola, Omar OM</p>
+                              <p className="text-xl font-bold text-blue-900">Bienvenido</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-4 gap-3 mt-4 text-center">
+                            <div className="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center justify-center">
+                              <Cog className="w-5 h-5 text-yellow-500" /><span className="text-[10px] mt-1">Talento</span>
+                            </div>
+                             <div className="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center justify-center">
+                              <Heart className="w-5 h-5 text-red-400" /><span className="text-[10px] mt-1">Sencillez</span>
+                            </div>
+                            <div className="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center justify-center">
+                              <Award className="w-5 h-5 text-blue-500" /><span className="text-[10px] mt-1">Esfuerzo</span>
+                            </div>
+                            <div className="bg-white rounded-xl p-3 shadow-sm flex flex-col items-center justify-center">
+                              <Sparkles className="w-5 h-5 text-purple-400" /><span className="text-[10px] mt-1">Imaginación</span>
+                            </div>
+                        </div>
+                        <div className="bg-white rounded-xl p-4 shadow-sm mt-4">
+                          <div className="flex items-center">
+                            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                              <Users className="w-6 h-6 text-blue-600" />
+                            </div>
+                            <div className="ml-3">
+                              <p className="font-bold text-blue-900">Gestionando Talento Humano</p>
+                              <p className="text-[10px] text-gray-500">Reclutamiento y selección, Atención al personal, Recepción</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-span-1 space-y-3">
+                        <div className="bg-white rounded-xl p-3 shadow-sm text-center">
+                          <FileText className="w-6 h-6 mx-auto text-blue-800" />
+                          <p className="font-bold text-lg text-blue-900 mt-1">01:57 p.m.</p>
+                          <p className="text-[10px] text-gray-500">Viernes, 12 De Diciembre</p>
+                          <div className="flex justify-around text-[9px] mt-2">
+                            <div><p>Estado</p><p className="font-bold">Activo</p></div>
+                            <div><p>Turno</p><p className="font-bold">Matutino</p></div>
+                            <div><p>Sede</p><p className="font-bold">CDMX</p></div>
+                          </div>
+                        </div>
+                        <div className="bg-blue-100 rounded-xl p-3 shadow-sm">
+                          <p className="text-[10px] text-gray-500">Temporada</p>
+                          <div className="flex items-center justify-between">
+                            <p className="font-bold text-blue-900">Invierno</p>
+                            <Snowflake className="w-5 h-5 text-blue-500"/>
+                          </div>
+                          <p className="text-[9px] text-blue-800">¡Felices Fiestas!</p>
+                        </div>
+                         <div className="bg-white rounded-xl p-3 shadow-sm text-center">
+                          <div className="flex justify-between items-center text-[10px]">
+                             <span className="font-bold">OM</span>
+                             <span className="text-gray-500">Sistemas</span>
+                             <span className="text-gray-500">320.38</span>
+                          </div>
+                         </div>
+                         <div className="bg-white rounded-xl p-3 shadow-sm">
+                            <div className="flex items-center justify-between">
+                               <BookOpen className="w-5 h-5 text-blue-800"/>
+                               <Download className="w-4 h-4 text-gray-400"/>
+                            </div>
+                            <p className="font-bold text-sm mt-1">Manual de Usuario</p>
+                            <p className="text-[9px] text-gray-500">Descarga la guía completa...</p>
+                         </div>
                       </div>
                     </div>
                   </div>

@@ -16,7 +16,7 @@ const skills = [
 
 const technologies = [
   "Astro", "Tailwind CSS", "shadcn/ui", "Firebase", "ASP.NET",
-  "Postman", "React Hook Form", "Docker", "Git", "Github", "C#", "Java"
+  "Postman", "React Hook Form", "Docker", "Git", "Github", "C#", "Java", "Next.JS", "Typescript","Zustand","Axios"
 ];
 
 const AboutSection = () => {

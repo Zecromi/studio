@@ -63,8 +63,8 @@ const ContactCard = ({
 };
 
 const ContactSection = () => {
-  const userPhoneNumber = "5211234567890"; // Replace with your WhatsApp number
-  const userEmail = "dev@example.com"; // Replace with your email
+  const userPhoneNumber = "5636460897"; // Replace with your WhatsApp number
+  const userEmail = "zecro.1996@gmail.com"; // Replace with your email
 
   return (
     <section className="w-full">
