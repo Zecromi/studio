@@ -22,9 +22,9 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
-          > CyberPortafolio_
+          &gt; CyberPortafolio_
         </Link>
-      
+
         <nav className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -37,9 +37,9 @@ const Header = () => {
           ))}
           <ThemeToggle />
         </nav>
-        
+
         <div className="md:hidden">
-           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6 text-primary" />
@@ -54,13 +54,13 @@ const Header = () => {
                     key={link.href}
                     href={link.href}
                     className="text-2xl font-medium text-foreground/80 transition-colors hover:text-primary hover:text-glow"
-                     onClick={() => setIsSheetOpen(false)}
+                    onClick={() => setIsSheetOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
                 <div className="mt-8">
-                   <ThemeToggle />
+                  <ThemeToggle />
                 </div>
               </nav>
             </SheetContent>

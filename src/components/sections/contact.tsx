@@ -27,7 +27,7 @@ const ContactCard = ({
   color: string;
 }) => {
   return (
-    <Card 
+    <Card
       className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-[var(--card-color)] transition-colors duration-300 shadow-[0_0_20px_hsl(var(--primary)/0.1)] group"
       style={{ '--card-color': color } as React.CSSProperties}
     >
@@ -42,13 +42,13 @@ const ContactCard = ({
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center p-6 pt-0">
         <div className="relative w-40 h-40 rounded-lg overflow-hidden border-2 border-primary/30 group-hover:border-[var(--card-color)] p-2 bg-background/50">
-            <Image
-                src={qrCodeUrl}
-                alt={qrCodeAlt}
-                width={256}
-                height={256}
-                className="w-full h-full object-contain"
-            />
+          <Image
+            src={qrCodeUrl}
+            alt={qrCodeAlt}
+            width={256}
+            height={256}
+            className="w-full h-full object-contain"
+          />
         </div>
       </CardContent>
       <CardFooter>
@@ -68,9 +68,6 @@ const ContactSection = () => {
 
   return (
     <section className="w-full">
-      <h2 className="mb-8 text-3xl font-bold md:text-4xl">
-        <TypewriterText text="> Contacto..." />
-      </h2>
       <div className="mx-auto grid max-w-4xl grid-cols-1 items-stretch gap-8 md:grid-cols-2">
         <ContactCard
           icon={MessageSquare}
