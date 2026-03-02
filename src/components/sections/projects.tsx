@@ -7,62 +7,104 @@ import { TypewriterText } from "@/components/typewriter-text";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectModal } from "@/components/project-modal";
 import React from "react";
-import { ExternalLink, Star, StarHalf, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal, Trophy, Award, Sparkles, Snowflake, Download, Filter, ArrowUpDown, Pencil, Landmark, Printer, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, Star, StarHalf, UserRound, Heart, Brain, Briefcase, User, Phone, Calendar, FileText, Menu, Mail, Search, Calculator, Bell, CheckCircle2, Cog, Share2, DollarSign, TrendingUp, BookOpen, Users, CheckSquare, Clipboard, Monitor, Lightbulb, SlidersHorizontal, Trophy, Award, Sparkles, Snowflake, Download, Filter, ArrowUpDown, Pencil, Landmark, Printer, ChevronDown, ChevronLeft, ChevronRight, Code, Database, Layers, Hexagon, Palette } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "motion/react";
 import { useState } from "react";
 
 const projects = [
   {
     title: "Gestalh",
-    description: "Página para el área de recursos humanos desarrollada en ASP.NET para la gestión y control de los empleados de la empresa.",
+    description: "Modernización de sistema (.exe) legacy a plataforma web centralizada. Eliminó la necesidad de accesos manuales por servidor, simplificando radicalmente los procesos de contratación, alta y gestión de usuarios en cualquier entorno del ecosistema interno.",
     tags: ["ASP.NET", "SQL Server", "C#"],
     color: "hsl(180, 50%, 40%)",
     liveUrl: "#",
     icon: Star,
+    role: "Desarrollo Individual",
   },
   {
     title: "Web Candidatos",
-    description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
+    description: "Transformación digital de los procesos de reclutamiento. Sustituyó los formatos físicos por una plataforma robusta para la gestión de solicitudes, documentación técnica y estudios socioeconómicos, optimizando los tiempos de procesamiento y la integridad de la información.",
     tags: ["ASP.NET", "SQL Server", "C#"],
     color: "hsl(236, 59.70%, 52.40%)",
     liveUrl: "#",
     icon: UserRound,
+    role: "Trabajo en Equipo",
   },
   {
     title: "Gespa Web",
-    description: "Pagina creada para que los usuarios nuevos que van a ingresar a la empresa ingresaran sus datos personales y documentación.",
-    tags: ["React", "BootstrapReact", "Sass", "Axios", "NodeJs"],
+    description: "Plataforma avanzada para la gestión de cartera y procesos de cobranza. Ejecuté la migración estratégica de sistemas legacy a un entorno web moderno y altamente seguro (integración con OKTA), optimizando el seguimiento de pagos y la experiencia del usuario.",
+    tags: ["React", "BootstrapReact", "Sass", "Axios", "NodeJs", "OKTA"],
     color: "hsl(0, 100.00%, 50.00%)",
     liveUrl: "#",
     icon: Heart,
+    role: "Trabajo en Equipo",
   },
   {
     title: "Coorin Web",
-    description: "Pagina para la consulta de cuentas, como migración de un aplicativo interno, a pagina web",
+    description: "Solución táctica para la gestión financiera y cobranza. Digitalizó la consulta de cuentas y el control de pagos mediante la migración de flujos de trabajo internos hacia una arquitectura web escalable, unificando la administración de usuarios y garantizando una mayor eficiencia operativa.",
     tags: ["React", "Tailwind", "Preline", "Axios"],
     color: "hsl(150, 56.70%, 35.30%)",
     liveUrl: "#",
     icon: Brain,
+    role: "Trabajo en Equipo",
   },
   {
     title: "Gestalh 2.0",
-    description: "Página para el área de recursos humanos, Contabilidad, Areas administrativas",
+    description: "Evolución integral a un sistema ERP de Recursos Humanos. Lideré la migración a la versión 2.0, logrando una reducción significativa en errores de captura de datos y optimizando la productividad administrativa mediante la automatización de procesos clave.",
     tags: ["React", "Tailwind", "Shadcn", "Axios", "Zustand", "Next.JS", "WebHooks"],
     color: "hsl(205, 56.70%, 35.30%)",
     liveUrl: "#",
     icon: StarHalf,
+    role: "Desarrollo Individual",
   },
-
   {
     title: "Gimnasia",
-    description: "Pagina para control y administración de eventos de sitios de clubes deportivos del EDOMEX",
-    tags: ["React", "Tailwind", "Shadcn", "Axios", "Zustand", "Next.JS", "TypeScript"],
-    color: "hsl(0, 0.00%, 44.30%)",
+    description: "Plataforma integral de gestión deportiva (ERP) diseñada para centralizar la administración de atletas, clubes y eventos. Incluye automatización de reportes (PDF/Excel), dashboard analítico en tiempo real con Recharts y una experiencia de usuario premium con Framer Motion.",
+    tags: ["React", "Next.JS", "Tailwind 4", "Framer Motion", "Recharts", "Zustand", "jsPDF", "ExcelJS"],
+    color: "hsl(280, 65%, 45%)",
     liveUrl: "#",
     icon: Trophy,
+    role: "Trabajo en Equipo",
+  }
+];
+
+const getTechIcon = (tag: string, className: string = "text-xs mr-1") => {
+  const lowerTag = tag.toLowerCase();
+
+  // Mapping for Devicons (Icon font classes)
+  const deviconMap: Record<string, string> = {
+    'asp.net': 'devicon-dot-net-plain',
+    'c#': 'devicon-csharp-plain',
+    'sql server': 'devicon-mysql-plain',
+    'mysql': 'devicon-mysql-plain',
+    'react': 'devicon-react-original',
+    'next.js': 'devicon-nextjs-plain',
+    'typescript': 'devicon-typescript-plain',
+    'tailwind': 'devicon-tailwindcss-plain',
+    'nodejs': 'devicon-nodejs-plain',
+    'sass': 'devicon-sass-original',
+    'bootstrap': 'devicon-bootstrap-plain',
+    'docker': 'devicon-docker-plain',
+    'mongodb': 'devicon-mongodb-plain',
+    'firebase': 'devicon-firebase-plain',
+    'git': 'devicon-git-plain',
+    'github': 'devicon-github-original',
+  };
+
+  const deviconClass = deviconMap[lowerTag] || deviconMap[lowerTag.split(' ')[0]];
+
+  if (deviconClass) {
+    return <i className={`${deviconClass} ${className}`} />;
   }
 
-];
+  // Fallback to Lucide icons
+  if (lowerTag.includes('sql') || lowerTag.includes('postgres') || lowerTag.includes('mongo') || lowerTag.includes('database')) return <Database className="w-3 h-3 mr-1" />;
+  if (lowerTag.includes('react') || lowerTag.includes('next') || lowerTag.includes('shadcn')) return <Layers className="w-3 h-3 mr-1" />;
+  if (lowerTag.includes('node') || lowerTag.includes('api') || lowerTag.includes('express')) return <Hexagon className="w-3 h-3 mr-1" />;
+  if (lowerTag.includes('tailwind') || lowerTag.includes('css') || lowerTag.includes('sass')) return <Palette className="w-3 h-3 mr-1" />;
+
+  return <Code className="w-3 h-3 mr-1" />;
+};
 
 const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
   return (
@@ -473,9 +515,18 @@ const StackedCarousel = ({ items }: { items: typeof projects }) => {
                         </div>
                       </CardHeader>
                       <CardContent className="flex flex-grow flex-col justify-center p-8 text-center">
-                        <Badge className="mx-auto mb-4 w-fit bg-[var(--project-color)]/10 text-[var(--project-color)] border-[var(--project-color)]/20">
-                          PROYECTO_UI
-                        </Badge>
+                        <div className="flex flex-col gap-2 mx-auto mb-4">
+                          <Badge className="w-fit mx-auto bg-[var(--project-color)]/10 text-[var(--project-color)] border-[var(--project-color)]/20 flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--project-color)] opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--project-color)]"></span>
+                            </span>
+                            PROYECTO_UI
+                          </Badge>
+                          <Badge variant="outline" className="w-fit mx-auto border-primary/20 text-[9px] uppercase tracking-[0.2em] text-foreground/40 font-mono">
+                            {project.role}
+                          </Badge>
+                        </div>
                         <CardTitle className="mb-4 text-3xl font-bold tracking-tighter text-glow transition-all duration-300 group-hover:text-[var(--project-color)] group-hover:[text-shadow:0_0_15px_var(--project-color)]">
                           {project.title}
                         </CardTitle>
@@ -485,8 +536,9 @@ const StackedCarousel = ({ items }: { items: typeof projects }) => {
                       </CardContent>
                       <CardFooter className="flex flex-wrap justify-center gap-2 p-8 pt-0">
                         {project.tags.slice(0, 3).map((tag) => (
-                          <Badge key={tag} variant="outline" className="border-primary/20 text-[10px] uppercase tracking-widest text-primary/60 group-hover:border-[var(--project-color)]/40 group-hover:text-[var(--project-color)]">
-                            {tag}
+                          <Badge key={tag} variant="outline" className="border-primary/20 text-[10px] uppercase tracking-widest text-primary/60 group-hover:border-[var(--project-color)]/40 group-hover:text-[var(--project-color)] flex items-center">
+                            {getTechIcon(tag)}
+                            <span className="truncate max-w-[120px]">{tag}</span>
                           </Badge>
                         ))}
                       </CardFooter>

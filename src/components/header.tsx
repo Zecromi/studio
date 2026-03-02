@@ -5,13 +5,13 @@ import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Github, Linkedin } from "lucide-react";
 import React from "react";
 
 const Header = () => {
   const navLinks = [
     { href: "#home", label: "Inicio" },
-    { href: "#about", label: "Acerca de" },
+    { href: "#about", label: "Mi Perfil" },
     { href: "#projects", label: "Proyectos" },
     { href: "#contact", label: "Contacto" },
   ];
@@ -22,7 +22,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
-          &gt; CyberPortafolio_
+          &gt; Portfolio_Omiom
         </Link>
 
         <nav className="hidden items-center gap-4 md:flex">
@@ -36,6 +36,18 @@ const Header = () => {
             </Link>
           ))}
           <ThemeToggle />
+          <div className="flex items-center gap-1 border-l border-primary/20 pl-4 ml-2">
+            <Button variant="ghost" size="icon" asChild className="h-9 w-9 hover:bg-primary/10">
+              <a href="https://github.com/Zecromi" aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary hover:text-glow transition-all">
+                <Github className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" asChild className="h-9 w-9 hover:bg-primary/10">
+              <a href="https://www.linkedin.com/in/omar-o-1b50b7212" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary hover:text-glow transition-all">
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </Button>
+          </div>
         </nav>
 
         <div className="md:hidden">

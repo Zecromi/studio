@@ -2,140 +2,200 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Code, Database, Layers, Hexagon, Palette } from "lucide-react";
-import { TypewriterText } from "@/components/typewriter-text";
-import TiltedCard from "@/component/TiltedCard";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
-
-const skills = [
-  { name: "TypeScript / JavaScript", level: 80, icon: <Code /> },
-  { name: "React / Native", level: 80, icon: <Layers /> },
-  { name: "Node.js", level: 85, icon: <Hexagon /> },
-  { name: "MySQLServer", level: 80, icon: <Database /> },
-  { name: "Tailwind / CSS / Sass", level: 75, icon: <Palette /> },
-];
 
 const technologies = [
-  "Astro", "Tailwind CSS", "shadcn/ui", "Firebase", "ASP.NET",
-  "Postman", "React Hook Form", "Docker", "Git", "Github", "C#", "Java", "Next.JS", "Typescript", "Zustand", "Axios"
+  { name: "Astro", icon: "devicon-astro-plain" },
+  { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+  { name: "Firebase", icon: "devicon-firebase-plain" },
+  { name: "ASP.NET", icon: "devicon-dot-net-plain" },
+  { name: "Postman", icon: null },
+  { name: "React Hook Form", icon: "devicon-react-original" },
+  { name: "Docker", icon: "devicon-docker-plain" },
+  { name: "Git", icon: "devicon-git-plain" },
+  { name: "Github", icon: "devicon-github-original" },
+  { name: "C#", icon: "devicon-csharp-plain" },
+  { name: "Java", icon: "devicon-java-plain" },
+  { name: "Next.JS", icon: "devicon-nextjs-plain" },
+  { name: "Typescript", icon: "devicon-typescript-plain" },
+  { name: "Zustand", icon: "devicon-zustand-plain" },
+  { name: "Axios", icon: "devicon-axios-plain" },
+  { name: "Bootstrap", icon: "devicon-bootstrap-plain" },
+  { name: "Framer Motion", icon: "devicon-framer-original" },
+  { name: "Swagger", icon: "devicon-swagger-plain" },
+  { name: "shadcn/ui", icon: "devicon-tailwindcss-plain" }
+];
+
+const getDevicon = (tech: string) => {
+  const mapping: Record<string, string> = {
+    "ASP.NET": "devicon-dot-net-plain",
+    "SQL Server": "devicon-microsoftsqlserver-plain",
+    "MySQL": "devicon-mysql-plain",
+    "C#": "devicon-csharp-plain",
+    "ASP.NET Core": "devicon-dotnetcore-plain",
+    "React.js": "devicon-react-original",
+    "React": "devicon-react-original",
+    "NodeJS": "devicon-nodejs-plain",
+    "Tailwind": "devicon-tailwindcss-plain",
+    "Next.js": "devicon-nextjs-plain",
+    "TypeScript": "devicon-typescript-plain",
+    "Docker": "devicon-docker-plain",
+    "Axios": "devicon-axios-plain",
+    "Git": "devicon-git-plain",
+    "Java": "devicon-java-plain",
+    "Firebase": "devicon-firebase-plain",
+    "Astro": "devicon-astro-plain",
+    "Bootstrap": "devicon-bootstrap-plain",
+    "Bootstrap React": "devicon-bootstrap-plain",
+    "Framer Motion": "devicon-framer-original",
+    "Swagger": "devicon-swagger-plain",
+    "NodeJs": "devicon-nodejs-plain",
+    "Zustand": "devicon-zustand-plain",
+    "shadcn/ui": "devicon-tailwindcss-plain",
+    "Framer": "devicon-framer-original",
+    "SSMS": "devicon-microsoftsqlserver-plain",
+  };
+
+  const normalized = tech.trim();
+  return mapping[normalized] || mapping[normalized.split(' ')[0]] || null;
+};
+
+const timelineData = [
+  {
+    year: "2022",
+    title: "GESTALH - Recursos Humanos",
+    description: "Modernización de sistema (.exe) legacy a plataforma web centralizada. Eliminó la necesidad de accesos manuales por servidor, simplificando procesos de contratación y alta.",
+    tech: ["ASP.NET", "SQL Server", "C#", "Bootstrap", "SSMS"],
+    color: "hsl(180, 50%, 40%)",
+  },
+  {
+    year: "2024",
+    title: "WEB CANDIDATOS",
+    description: "Transformación digital de reclutamiento. Sustitución de formatos físicos por una plataforma robusta para la gestión de solicitudes, documentación y estudios socioeconómicos.",
+    tech: ["ASP.NET", "SQL Server", "C#", "Bootstrap", "SSMS"],
+    color: "hsl(236, 59.70%, 52.40%)",
+  },
+  {
+    year: "2025",
+    title: "GESPA WEB",
+    description: "Plataforma avanzada para gestión de cartera. Migración estratégica a entorno web seguro con integración OKTA, optimizando el seguimiento de pagos y procesos de cobranza.",
+    tech: ["React.js", "Axios", "Swagger", "NodeJS", "Bootstrap React", "OKTA"],
+    color: "hsl(0, 100.00%, 50.00%)",
+  },
+  {
+    year: "2025",
+    title: "COORIN WEB",
+    description: "Solución táctica financiera. Digitalización de consulta de cuentas y control de pagos mediante arquitectura web escalable, unificando la administración operativa.",
+    tech: ["React", "Tailwind", "Axios", "NodeJS", "Flyon UI"],
+    color: "hsl(150, 56.70%, 35.30%)",
+  },
+  {
+    year: "2026",
+    title: "GESTALH 2.0",
+    description: "Evolución integral a ERP de RRHH. Lideré la migración a la versión 2.0, reduciendo errores de captura y optimizando la productividad mediante automatización avanzada.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Axios", "Zustand", "shadcn/ui", "Framer Motion"],
+    color: "hsl(205, 56.70%, 35.30%)",
+  },
+  {
+    year: "2026",
+    title: "GIMNASIA - Control Nacional",
+    description: "ERP deportivo integral para centralizar la administración de atletas y eventos. Incluye reportes automatizados, dashboards en tiempo real y UX premium.",
+    tech: ["Next.js", "TypeScript", "Tailwind 4", "Framer Motion", "Recharts", "Zustand", "jsPDF", "ExcelJS"],
+    color: "hsl(280, 65%, 45%)",
+  }
 ];
 
 const AboutSection = () => {
-  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  // Apply spring smoothing to the scroll progress
-  const smoothProgress = useSpring(scrollYProgress, {
+  const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
 
-  // Calculate coordinates for the swap using the smoothed progress.
-  // We want the GIFs to cross paths at scrollYProgress around 0.5
-  // GIF 1 (Misión): Moves from (0,0) towards the position of GIF 2.
-  // GIF 2 (Skills): Moves from (0,0) towards the position of GIF 1.
-
-  // Note: These values are estimations for a diagonal swap.
-  // Misión moves right -> left, top -> bottom.
-  const x1 = useTransform(smoothProgress, [0.2, 0.8], ["-4%", "-350%"]);
-  const y1 = useTransform(smoothProgress, [0.2, 0.8], ["10px", "620px"]);
-
-  // Skills moves left -> right, bottom -> top.
-  const x2 = useTransform(smoothProgress, [0.2, 0.8], ["0%", "350%"]);
-  const y2 = useTransform(smoothProgress, [0.2, 0.8], ["0px", "-620px"]);
-
-  // Opacity and scale for a "passing through dimensions" feel
-  const opacity = useTransform(smoothProgress, [0.2, 0.4, 0.6, 0.8], [1, 0.7, 0.7, 1]);
-  const scale = useTransform(smoothProgress, [0.2, 0.5, 0.8], [1, 0.85, 1]);
-
   return (
-    <section ref={containerRef} className="w-full relative">
-      <div className="space-y-12">
-        {/* Row 1: Misión & Placeholder - Wider text, narrower square image */}
-        <div className="grid gap-8 md:grid-cols-[1.6fr_1fr] items-center">
+    <section ref={containerRef} className="w-full relative py-12">
+      <div className="space-y-16">
+        {/* Misión y Perfil */}
+        <div className="grid gap-8 items-start">
           <div>
             <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
-              // Misión_Objetivos
+              // Perfil_Profesional
             </h3>
-            <p className="text-foreground/80 leading-relaxed">
-              Desarrollador Full Stack con 4 años de experiencia sólida en el ciclo completo de desarrollo de software (SDLC). Especializado en la modernización de sistemas empresariales, migrando aplicaciones legacy a arquitecturas web escalables utilizando ASP.NET Core, C# y React.js. Experto en optimización de bases de datos y creación de interfaces de usuario eficientes con Next.js y Tailwind CSS. Enfocado en la entrega de código limpio, mantenible y soluciones de alto impacto para la gestión administrativa y financiera.
+            <p className="text-foreground/80 leading-relaxed text-lg max-w-4xl">
+              Desarrollador Full Stack con 4 años de experiencia en la transformación digital de sistemas empresariales. Enfocado en el diseño de arquitecturas web modernas y en la migración estratégica de sistemas legacy hacia ecosistemas escalables de alto rendimiento. Con trayectoria en el desarrollo de plataformas ERP para Recursos Humanos y Deporte, priorizando la automatización de procesos operativos, la seguridad (OKTA) y la integridad de la información. Comprometido con la creación de interfaces funcionales y analíticas eficientes utilizando el stack de Next.js, React y Tailwind CSS.
             </p>
           </div>
-          <motion.div
-            style={{
-              x: isMobile ? 0 : x1,
-              y: isMobile ? 0 : y1,
-              opacity: isMobile ? 1 : opacity,
-              scale: isMobile ? 1 : scale,
-              zIndex: 5
-            }}
-            className="flex justify-center"
-          >
-            <TiltedCard
-              imageSrc="/tecla_neon.png"
-              altText="Misión y Objetivos"
-              captionText="Misión y Objetivos"
-              containerHeight="220px"
-              containerWidth="100%"
-              imageHeight="300px"
-              imageWidth="500px"
-              showTooltip={true}
-              rotateAmplitude={12}
-              scaleOnHover={1.05}
-            />
-          </motion.div>
         </div>
 
-        {/* Row 2: Placeholder & Skills - Narrower square image, wider text */}
-        <div className="grid gap-8 md:grid-cols-[1fr_1.6fr] items-center">
-          <motion.div
-            style={{
-              x: isMobile ? 0 : x2,
-              y: isMobile ? 0 : y2,
-              opacity: isMobile ? 1 : opacity,
-              scale: isMobile ? 1 : scale,
-              zIndex: 10
-            }}
-            className="flex justify-center order-2 md:order-1"
-          >
-            <TiltedCard
-              imageSrc="/code_skills.gif"
-              altText="Skills"
-              captionText="Digital Skills"
-              containerHeight="300px"
-              containerWidth="300px"
-              imageHeight="300px"
-              imageWidth="300px"
-              showTooltip={true}
-              rotateAmplitude={15}
-              scaleOnHover={1.1}
+        {/* Timeline Section */}
+        <div className="relative">
+          <h3 className="mb-12 text-2xl font-semibold text-primary text-glow">
+            // Historial_de_Proyectos
+          </h3>
+
+          <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-primary/10">
+            {/* Animated Progress Line */}
+            <motion.div
+              className="absolute inset-0 ml-5 -translate-x-px md:mx-auto md:translate-x-0 w-0.5 bg-gradient-to-b from-primary via-primary to-transparent origin-top z-0"
+              style={{ scaleY }}
             />
-          </motion.div>
-          <div className="order-1 md:order-2">
-            <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
-               // Skills
-            </h3>
-            <div className="space-y-4">
-              {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="mb-1 flex items-center justify-between text-sm font-medium">
-                    <span className="flex items-center gap-2">{skill.icon} {skill.name}</span>
-                    <span>{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2 border border-primary/50 bg-primary/10 [&>div]:bg-primary" />
+
+            {timelineData.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+              >
+                {/* Dot */}
+                <div
+                  style={{ '--hover-color': item.color } as any}
+                  className="flex items-center justify-center w-10 h-10 rounded-full border border-primary/50 bg-background absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 shadow-[0_0_15px_rgba(var(--primary-rgb),0.2)] group-hover:shadow-[0_0_20px_var(--hover-color)] group-hover:border-[var(--hover-color)] transition-all duration-300"
+                >
+                  <div className="w-2 h-2 rounded-full bg-primary group-hover:bg-[var(--hover-color)] animate-pulse" />
                 </div>
-              ))}
-            </div>
+
+                {/* Content Card */}
+                <div
+                  style={{ '--hover-color': item.color } as any}
+                  className="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-xl border border-primary/10 bg-primary/5 backdrop-blur-sm hover:border-[var(--hover-color)]/30 hover:bg-[var(--hover-color)]/5 transition-all duration-300 ml-14 md:ml-0 group-hover:shadow-[0_0_30px_var(--hover-color)/0.1]"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                    <span className="text-primary group-hover:text-[var(--hover-color)] font-mono text-sm font-bold transition-colors">{item.year}</span>
+                    <h4 className="text-lg font-bold text-foreground group-hover:text-[var(--hover-color)] transition-colors">{item.title}</h4>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {item.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {item.tech.map((t) => {
+                      const iconClass = getDevicon(t);
+                      return (
+                        <span
+                          key={t}
+                          className="text-[10px] px-2 py-0.5 rounded-full border border-primary/20 bg-primary/5 text-primary/80 uppercase tracking-widest font-bold group-hover:border-[var(--hover-color)]/40 group-hover:text-[var(--hover-color)] transition-all flex items-center gap-1.5"
+                        >
+                          {iconClass && <i className={`${iconClass} text-xs`} />}
+                          {t}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
+
 
         {/* Tech Arsenal Section */}
         <div className="pt-8">
@@ -144,8 +204,9 @@ const AboutSection = () => {
           </h3>
           <div className="flex flex-wrap gap-2">
             {technologies.map((tech) => (
-              <Badge key={tech} variant="outline" className="border-primary/50 bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground">
-                {tech}
+              <Badge key={tech.name} variant="outline" className="border-primary/50 bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground flex items-center gap-2">
+                {tech.icon && <i className={`${tech.icon} text-sm`} />}
+                {tech.name}
               </Badge>
             ))}
           </div>

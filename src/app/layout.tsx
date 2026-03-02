@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
       <body className={`${GeistSans.variable} ${GeistMono.variable} font-code antialiased crt-effect`}>
         <ThemeProvider
           attribute="class"

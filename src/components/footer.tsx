@@ -1,6 +1,5 @@
 
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,18 +11,16 @@ const Footer = () => {
           <p>&copy; {currentYear} CYBERTERMINAL. Todo reservado por mi.</p>
           <p>Estatus: <span className="text-primary">ONLINE</span> | Locación: <span className="text-primary">Cyberspace Grid 7</span></p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com/Zecromi" aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-black dark:hover:text-white transition-colors">
-              <Github className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://www.linkedin.com/in/omar-o-1b50b7212" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-black dark:hover:text-white transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-          </Button>
-        
+        <div className="flex items-center gap-4">
+          <span className="text-[10px] font-mono text-foreground/40 uppercase tracking-widest hidden sm:block">Built_with:</span>
+          <div className="flex items-center gap-3 text-lg text-primary/60">
+            <i className="devicon-astro-plain" title="Astro" />
+            <i className="devicon-nextjs-plain" title="Next.js" />
+            <i className="devicon-react-original" title="React" />
+            <i className="devicon-tailwindcss-plain" title="Tailwind CSS" />
+            <i className="devicon-typescript-plain" title="TypeScript" />
+            <i className="devicon-framer-original" title="Framer Motion" />
+          </div>
         </div>
       </div>
     </footer>
