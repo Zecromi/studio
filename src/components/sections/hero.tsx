@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="z-10 will-change-transform relative"
             >
               <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto">
-                <GraffitiOM className="text-black dark:text-black w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[450px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
+                <GraffitiOM className="text-black dark:text-black w-[90vw] max-w-[400px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[750px] h-[500px] md:h-[550px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
               </h1>
             </motion.div>
 
