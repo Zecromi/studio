@@ -55,6 +55,11 @@ const HeroSection = () => {
   const mouseLogoYOffset = useTransform(springMouseYTarget, (val) => val * 0.02);
   const logoY = useTransform([rawLogoY, mouseLogoYOffset], ([y1, y2]) => (y1 as number) + (y2 as number));
 
+  // Depth perspective for Graffiti (moves slightly opposite and slower)
+  const mouseGraffitiX = useTransform(springMouseXTarget, (val) => val * -0.01);
+  const mouseGraffitiYOffset = useTransform(springMouseYTarget, (val) => val * -0.01);
+  const graffitiY = useTransform([rawLogoY, mouseGraffitiYOffset], ([y1, y2]) => (y1 as number) * 0.4 + (y2 as number));
+
   const mouseCatX = useTransform(springMouseXTarget, (val) => val * 0.1);
   const mouseCatYOffset = useTransform(springMouseYTarget, (val) => val * 0.1);
   const catY = useTransform([rawCatY, mouseCatYOffset], ([y1, y2]) => (y1 as number) + (y2 as number));
@@ -62,46 +67,52 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-7rem)] w-[100%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center bg-[#bfb797] dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem] shadow-2xl my-4 border border-none"
+      className="relative flex min-h-[calc(100vh-7rem)] w-[100%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem]  my-4 border-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {/* Background Effect - Isolated for performance */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <PixelSnow
-          color={mounted && resolvedTheme === "light" ? "#afa479" : "#ffffff"}
-          flakeSize={0.01}
-          minFlakeSize={1.25}
-          pixelResolution={225}
-          speed={1.25}
-          density={0.3}
-          direction={125}
-          brightness={1}
-          depthFade={8}
-          farPlane={20}
-          gamma={0.4545}
-          variant="square"
-          className="w-full h-full"
-        />
-      </div>
 
       {/* Main Content - Decoupled from background re-renders */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center py-12 px-8">
         <div className="space-y-4 flex flex-col items-center relative">
           {/* Faded blur background */}
-          <div className="absolute inset-0 bg-background/5 dark:bg-zinc-950/20 backdrop-blur-[12px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] -z-10 rounded-full" />
+          <div className="absolute inset-0 bg-background/5 dark:bg-zinc-950/20 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] -z-10 rounded-full" />
 
           <div className="relative flex justify-center items-center w-full py-8" ref={logoRef}>
-            {/* Logo Layer */}
+            {/* Graffiti Background - Deep Layer */}
+            <motion.div
+              style={{
+                y: graffitiY,
+                x: mouseGraffitiX,
+              }}
+              className="absolute inset-0 flex items-center justify-center opacity-70 dark:opacity-90 pointer-events-none scale-150 z-0 will-change-transform drop-shadow-[0_0_20px_#3b82f6] dark:drop-shadow-[0_0_25px_#60a5fa]"
+            >
+              <div
+                className="w-full h-full bg-blue-500 dark:bg-gray-400"
+                style={{
+                  WebkitMaskImage: 'url(/Graffiiti_lines.svg)',
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: 'url(/Graffiiti_lines.svg)',
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
+            </motion.div>
+
+            {/* Logo Layer - High Layer */}
             <motion.div
               style={{
                 y: logoY,
                 x: mouseLogoX,
               }}
-              className="z-10 will-change-transform"
+              className="z-10 will-change-transform relative"
             >
-              <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto drop-shadow-md dark:text-glow">
-                <OmiomLogo className="w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[250px] dark:drop-shadow-[0_0_15px_hsl(var(--primary)/0.5)] drop-shadow-sm m-2" />
+              <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto">
+                <OmiomLogo className="text-black dark:text-gray-300 w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[250px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
               </h1>
             </motion.div>
 

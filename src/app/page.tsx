@@ -57,8 +57,17 @@ export default function Home() {
         <Header />
         <main className="flex-grow flex flex-col pt-16">
           {/* Hero: Bottom Layer */}
-          <section className="sticky top-0 z-0 h-screen w-full">
+          <section className="sticky top-0 z-0 h-screen w-full flex items-start justify-center overflow-hidden">
             <HeroSection />
+            <h1
+              className="absolute top-0 text-[15vw] md:text-[20vw] font-bold uppercase tracking-tighter text-foreground/10 dark:text-primary/5 pointer-events-none select-none z-0 leading-none"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 80%)',
+                maskImage: 'linear-gradient(to bottom, black 20%, transparent 80%)'
+              }}
+            >
+              PORTFOLIO
+            </h1>
           </section>
 
           {/* About: Slides over Hero */}

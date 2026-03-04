@@ -104,7 +104,7 @@ const timelineData = [
     title: "GIMNASIA - Control Nacional",
     description: "ERP deportivo integral para centralizar la administración de atletas y eventos. Incluye reportes automatizados, dashboards en tiempo real y UX premium.",
     tech: ["Next.js", "TypeScript", "Tailwind 4", "Framer Motion", "Recharts", "Zustand", "jsPDF", "ExcelJS"],
-    color: "hsl(280, 65%, 45%)",
+    color: "hsl(280, 80%, 65%)",
   }
 ];
 
@@ -125,14 +125,31 @@ const AboutSection = () => {
     <section ref={containerRef} className="w-full relative py-12">
       <div className="space-y-16">
         {/* Misión y Perfil */}
-        <div className="grid gap-8 items-start">
-          <div>
+        <div className="grid md:grid-cols-3 gap-8 items-center relative">
+          <div className="md:col-span-2">
             <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
               // Perfil_Profesional
             </h3>
             <p className="text-foreground/80 leading-relaxed text-lg max-w-4xl">
               Desarrollador Full Stack con 4 años de experiencia en la transformación digital de sistemas empresariales. Enfocado en el diseño de arquitecturas web modernas y en la migración estratégica de sistemas legacy hacia ecosistemas escalables de alto rendimiento. Con trayectoria en el desarrollo de plataformas ERP para Recursos Humanos y Deporte, priorizando la automatización de procesos operativos, la seguridad (OKTA) y la integridad de la información. Comprometido con la creación de interfaces funcionales y analíticas eficientes utilizando el stack de Next.js, React y Tailwind CSS.
             </p>
+          </div>
+          <div className="md:col-span-1 flex justify-center md:justify-end">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 opacity-90 drop-shadow-xl dark:drop-shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-transform hover:scale-105 duration-500">
+              <div
+                className="w-full h-full bg-foreground dark:bg-primary"
+                style={{
+                  WebkitMaskImage: 'url(/Graffiti_cat.svg)',
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: 'url(/Graffiti_cat.svg)',
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
+            </div>
           </div>
         </div>
 
