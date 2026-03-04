@@ -4,13 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/typewriter-text";
 import { OmiomLogo } from "@/components/omiom-logo";
-import { ArrowDown, Cpu, Binary, Code, SquareChevronRight, Braces } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useTheme } from "next-themes";
 import PixelSnow from "@/component/PixelSnow";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
-import { useRef } from "react";
 
 const HeroSection = () => {
   const mouseX = useMotionValue(0);
@@ -36,8 +35,8 @@ const HeroSection = () => {
     setMounted(true);
   }, []);
 
-  // Spring configuration for smooth follow
-  const springConfig = { stiffness: 100, damping: 20, mass: 0.5 };
+  // Memoize spring config to prevent unnecessary re-initializations
+  const springConfig = useMemo(() => ({ stiffness: 100, damping: 20, mass: 0.5 }), []);
   const springMouseXTarget = useSpring(mouseX, springConfig);
   const springMouseYTarget = useSpring(mouseY, springConfig);
 
@@ -51,7 +50,7 @@ const HeroSection = () => {
   const rawCatY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const catRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
 
-  // Combine scroll-based Y with mouse-based offsets
+  // Combine transforms efficiently
   const mouseLogoX = useTransform(springMouseXTarget, (val) => val * 0.02);
   const mouseLogoYOffset = useTransform(springMouseYTarget, (val) => val * 0.02);
   const logoY = useTransform([rawLogoY, mouseLogoYOffset], ([y1, y2]) => (y1 as number) + (y2 as number));
@@ -63,26 +62,32 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-6rem)] w-[95%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center bg-[#bfb797] dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem] shadow-2xl my-4 border border-none"
+      className="relative flex min-h-[calc(100vh-7rem)] w-[100%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center bg-[#bfb797] dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem] shadow-2xl my-4 border border-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <PixelSnow
-        color={mounted && resolvedTheme === "light" ? "#afa479" : "#ffffff"}
-        flakeSize={0.01}
-        minFlakeSize={1.25}
-        pixelResolution={225}
-        speed={1.25}
-        density={0.3}
-        direction={125}
-        brightness={1}
-        depthFade={8}
-        farPlane={20}
-        gamma={0.4545}
-        variant="square"
-        className="w-full h-full flex-1 flex flex-col items-center justify-center"
-      >
-        <div className="space-y-4 flex flex-col items-center z-10 relative py-12 px-8">
+      {/* Background Effect - Isolated for performance */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <PixelSnow
+          color={mounted && resolvedTheme === "light" ? "#afa479" : "#ffffff"}
+          flakeSize={0.01}
+          minFlakeSize={1.25}
+          pixelResolution={225}
+          speed={1.25}
+          density={0.3}
+          direction={125}
+          brightness={1}
+          depthFade={8}
+          farPlane={20}
+          gamma={0.4545}
+          variant="square"
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* Main Content - Decoupled from background re-renders */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-center py-12 px-8">
+        <div className="space-y-4 flex flex-col items-center relative">
           {/* Faded blur background */}
           <div className="absolute inset-0 bg-background/5 dark:bg-zinc-950/20 backdrop-blur-[12px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] -z-10 rounded-full" />
 
@@ -93,7 +98,7 @@ const HeroSection = () => {
                 y: logoY,
                 x: mouseLogoX,
               }}
-              className="z-10"
+              className="z-10 will-change-transform"
             >
               <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto drop-shadow-md dark:text-glow">
                 <OmiomLogo className="w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[250px] dark:drop-shadow-[0_0_15px_hsl(var(--primary)/0.5)] drop-shadow-sm m-2" />
@@ -107,13 +112,14 @@ const HeroSection = () => {
                 rotate: catRotate,
                 x: mouseCatX,
               }}
-              className="absolute z-20 pointer-events-none"
+              className="absolute z-20 pointer-events-none will-change-transform"
             >
               <Image
                 src="/CyberCat.png"
                 alt="Cybernetic Cat"
                 width={150}
                 height={150}
+                priority // Critical for LCP performance
                 className="rounded-full border-4 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.8)] bg-zinc-950/50 backdrop-blur-sm"
               />
             </motion.div>
@@ -130,15 +136,15 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 z-10 relative">
+        <div className="mt-12 relative">
           <Button asChild variant="ghost" className="text-primary hover:bg-primary/10">
             <a href="#about">
               Explorar <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
             </a>
           </Button>
         </div>
-      </PixelSnow>
-    </section >
+      </div>
+    </section>
   );
 };
 

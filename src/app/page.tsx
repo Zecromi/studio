@@ -1,14 +1,54 @@
+"use client";
 
 import Header from '@/components/header';
 import HeroSection from '@/components/sections/hero';
-import AboutSection from '@/components/sections/about';
-import ProjectsSection from '@/components/sections/projects';
-import ContactSection from '@/components/sections/contact';
-import Footer from '@/components/footer';
-import { Separator } from '@/components/ui/separator';
 import { InitialLoader } from '@/components/initial-loader';
 import SplitText from '@/component/SplitText';
 import { User, Code2, Mail } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import { useEffect, useRef, useState } from 'react';
+
+const AboutSection = dynamic(() => import('@/components/sections/about'), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-primary/5 rounded-3xl" />,
+});
+
+const ProjectsSection = dynamic(() => import('@/components/sections/projects'), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-primary/5 rounded-3xl" />,
+});
+
+const ContactSection = dynamic(() => import('@/components/sections/contact'), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-primary/5 rounded-3xl" />,
+});
+
+const Footer = dynamic(() => import('@/components/footer'));
+
+// Componente para manejar carga perezosa al scroll
+function ScrollLazyWrapper({ children, minHeight = "400px" }: { children: React.ReactNode, minHeight?: string }) {
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Comienza a cargar 200px antes de llegar
+    );
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} style={{ minHeight: isInView ? "auto" : minHeight }}>
+      {isInView ? children : <div className="w-full h-full animate-pulse bg-primary/5 rounded-3xl" />}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -25,7 +65,7 @@ export default function Home() {
           <section id="about" className="relative z-10 w-full bg-background/95 backdrop-blur-sm border-t border-primary/20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
             <div className="sticky top-16 z-50 w-full bg-background/50 backdrop-blur-md px-4 py-4 sm:px-6 lg:px-8 border-b border-primary/10">
               <div className="container mx-auto flex items-center gap-3">
-                <span>&gt;</span>
+
                 <User className="h-8 w-8 text-primary drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]" />
                 <SplitText
                   text="Mi_perfil..."
@@ -40,7 +80,9 @@ export default function Home() {
               </div>
             </div>
             <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8">
-              <AboutSection />
+              <ScrollLazyWrapper minHeight="500px">
+                <AboutSection />
+              </ScrollLazyWrapper>
             </div>
           </section>
 
@@ -62,7 +104,9 @@ export default function Home() {
               </div>
             </div>
             <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8">
-              <ProjectsSection />
+              <ScrollLazyWrapper minHeight="800px">
+                <ProjectsSection />
+              </ScrollLazyWrapper>
             </div>
           </section>
 
@@ -84,7 +128,9 @@ export default function Home() {
               </div>
             </div>
             <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8">
-              <ContactSection />
+              <ScrollLazyWrapper minHeight="400px">
+                <ContactSection />
+              </ScrollLazyWrapper>
             </div>
           </section>
         </main>

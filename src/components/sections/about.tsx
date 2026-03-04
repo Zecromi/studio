@@ -8,15 +8,13 @@ import { useRef } from "react";
 const technologies = [
   { name: "Astro", icon: "devicon-astro-plain" },
   { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
-  { name: "Firebase", icon: "devicon-firebase-plain" },
   { name: "ASP.NET", icon: "devicon-dot-net-plain" },
-  { name: "Postman", icon: null },
+  { name: "Postman", icon: "devicon-postman-plain" },
   { name: "React Hook Form", icon: "devicon-react-original" },
   { name: "Docker", icon: "devicon-docker-plain" },
   { name: "Git", icon: "devicon-git-plain" },
   { name: "Github", icon: "devicon-github-original" },
   { name: "C#", icon: "devicon-csharp-plain" },
-  { name: "Java", icon: "devicon-java-plain" },
   { name: "Next.JS", icon: "devicon-nextjs-plain" },
   { name: "Typescript", icon: "devicon-typescript-plain" },
   { name: "Zustand", icon: "devicon-zustand-plain" },
@@ -43,8 +41,6 @@ const getDevicon = (tech: string) => {
     "Docker": "devicon-docker-plain",
     "Axios": "devicon-axios-plain",
     "Git": "devicon-git-plain",
-    "Java": "devicon-java-plain",
-    "Firebase": "devicon-firebase-plain",
     "Astro": "devicon-astro-plain",
     "Bootstrap": "devicon-bootstrap-plain",
     "Bootstrap React": "devicon-bootstrap-plain",
@@ -55,6 +51,12 @@ const getDevicon = (tech: string) => {
     "shadcn/ui": "devicon-tailwindcss-plain",
     "Framer": "devicon-framer-original",
     "SSMS": "devicon-microsoftsqlserver-plain",
+    "Postman": "devicon-postman-plain",
+    "OKTA": "devicon-okta-plain",
+    "Tailwind 4": "devicon-tailwindcss-plain",
+    "Recharts": "devicon-react-original",
+    "jsPDF": "devicon-javascript-plain",
+    "ExcelJS": "devicon-javascript-plain",
   };
 
   const normalized = tech.trim();
@@ -202,11 +204,21 @@ const AboutSection = () => {
           <h3 className="mb-4 text-2xl font-semibold text-primary text-glow">
             // Tech_Arsenal
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
             {technologies.map((tech) => (
-              <Badge key={tech.name} variant="outline" className="border-primary/50 bg-primary/10 text-primary transition-all hover:bg-primary hover:text-primary-foreground flex items-center gap-2">
-                {tech.icon && <i className={`${tech.icon} text-sm`} />}
-                {tech.name}
+              <Badge
+                key={tech.name}
+                variant="outline"
+                className="border-primary/20 bg-primary/5 text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 flex flex-col items-center justify-center gap-3 p-4 h-24 w-24 rounded-2xl group/tech hover:-translate-y-1 shadow-sm hover:shadow-primary/20"
+              >
+                {tech.icon ? (
+                  <i className={`${tech.icon} text-3xl transition-all duration-300 group-hover/tech:scale-110 group-hover/tech:drop-shadow-[0_0_12px_rgba(var(--primary-rgb),0.6)]`} />
+                ) : (
+                  <div className="text-3xl font-bold opacity-30 select-none">?</div>
+                )}
+                <span className="text-[10px] font-bold uppercase tracking-wider text-center leading-tight">
+                  {tech.name}
+                </span>
               </Badge>
             ))}
           </div>
