@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/typewriter-text";
-import { OmiomLogo } from "@/components/omiom-logo";
+import { GraffitiOM } from "@/components/graffiti-om";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useMemo, useRef } from "react";
@@ -46,8 +46,8 @@ const HeroSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const rawLogoY = useTransform(scrollYProgress, [0, 1], [0, 50]);
-  const rawCatY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const rawLogoY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const rawCatY = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const catRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
 
   // Combine transforms efficiently
@@ -86,10 +86,10 @@ const HeroSection = () => {
                 y: graffitiY,
                 x: mouseGraffitiX,
               }}
-              className="absolute inset-0 flex items-center justify-center opacity-70 dark:opacity-90 pointer-events-none scale-150 z-0 will-change-transform drop-shadow-[0_0_20px_#3b82f6] dark:drop-shadow-[0_0_25px_#60a5fa]"
+              className="absolute inset-0 flex items-center justify-center opacity-70 dark:opacity-90 pointer-events-none scale-150 z-0 will-change-transform drop-shadow-[0_0_20px_gray] dark:drop-shadow-[0_0_25px_gray]"
             >
               <div
-                className="w-full h-full bg-blue-500 dark:bg-gray-400"
+                className="w-full h-full bg-gray-500 dark:bg-gray-400"
                 style={{
                   WebkitMaskImage: 'url(/Graffiiti_lines.svg)',
                   WebkitMaskSize: 'contain',
@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="z-10 will-change-transform relative"
             >
               <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto">
-                <OmiomLogo className="text-black dark:text-gray-300 w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[250px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
+                <GraffitiOM className="text-black dark:text-black w-[80vw] max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[350px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
               </h1>
             </motion.div>
 
@@ -128,8 +128,8 @@ const HeroSection = () => {
               <Image
                 src="/CyberCat.png"
                 alt="Cybernetic Cat"
-                width={150}
-                height={150}
+                width={180}
+                height={180}
                 priority // Critical for LCP performance
                 className="rounded-full border-4 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.8)] bg-zinc-950/50 backdrop-blur-sm"
               />
@@ -148,7 +148,7 @@ const HeroSection = () => {
         </div>
 
         <div className="mt-12 relative">
-          <Button asChild variant="ghost" className="text-primary hover:bg-primary/10">
+          <Button asChild variant="outline" className="border-primary/50 text-foreground dark:text-primary hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary dark:hover:text-primary-foreground transition-all duration-300">
             <a href="#about">
               Explorar <ArrowDown className="ml-2 h-4 w-4 animate-bounce" />
             </a>

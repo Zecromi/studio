@@ -18,6 +18,8 @@ const GespaWebMockup = lazy(() => import("../projects/gespa-web-mockup").then(m 
 const CoorinMockup = lazy(() => import("../projects/coorin-mockup").then(m => ({ default: m.CoorinMockup })));
 const GestalhV2Mockup = lazy(() => import("../projects/gestalh-v2-mockup").then(m => ({ default: m.GestalhV2Mockup })));
 const GimnasiaMockup = lazy(() => import("../projects/gimnasia-mockup").then(m => ({ default: m.GimnasiaMockup })));
+import { GraffitiP } from "../graffiti-p";
+import { GraffitiS } from "../graffiti-s";
 
 const projects = [
   {
@@ -161,7 +163,17 @@ const StackedCarousel = ({ items }: { items: typeof projects }) => {
 
   return (
     <div className="relative flex min-h-[650px] w-full flex-col items-center justify-center overflow-hidden py-12">
-      <div className="relative h-[550px] w-full max-w-[450px]">
+      {/* Background Graffiti P - Left */}
+      <div className="absolute right-1/2 mr-[80px] sm:mr-[120px] md:mr-[160px] top-1/2 -translate-y-1/2 h-[250px] w-[180px] md:h-[350px] md:w-[250px] opacity-60 pointer-events-none z-0 drop-shadow-xl dark:drop-shadow-[0_0_15px_hsl(var(--primary)/0.5)] text-foreground dark:text-primary transition-colors">
+        <GraffitiP />
+      </div>
+
+      {/* Background Graffiti S - Right */}
+      <div className="absolute left-1/2 ml-[80px] sm:ml-[120px] md:ml-[160px] top-1/2 -translate-y-1/2 h-[250px] w-[180px] md:h-[350px] md:w-[250px] opacity-60 pointer-events-none z-0 drop-shadow-xl dark:drop-shadow-[0_0_15px_hsl(var(--primary)/0.5)] text-foreground dark:text-primary transition-colors">
+        <GraffitiS />
+      </div>
+
+      <div className="relative h-[550px] w-full max-w-[450px] z-10">
         <AnimatePresence mode="popLayout">
           {items.map((project, i) => {
             // Only render top 3 cards for performance and visual clarity

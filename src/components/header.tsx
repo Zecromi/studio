@@ -21,19 +21,19 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
+        <a href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
           &gt; Portfolio_Omiom
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary hover:text-glow"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <ThemeToggle />
           <div className="flex items-center gap-1 border-l border-primary/20 pl-4 ml-2">
@@ -62,14 +62,14 @@ const Header = () => {
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <nav className="flex flex-col items-center justify-center h-full gap-8">
                 {navLinks.map((link) => (
-                  <Link
+                  <a
                     key={link.href}
                     href={link.href}
                     className="text-2xl font-medium text-foreground/80 transition-colors hover:text-primary hover:text-glow"
                     onClick={() => setIsSheetOpen(false)}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 ))}
                 <div className="mt-8">
                   <ThemeToggle />
