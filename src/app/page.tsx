@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/hero';
 import { InitialLoader } from '@/components/initial-loader';
 import SplitText from '@/component/SplitText';
 import { User, Code2, Mail } from 'lucide-react';
+import ShinyText from '@/component/ShinyText';
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
 
@@ -59,15 +60,23 @@ export default function Home() {
           {/* Hero: Bottom Layer */}
           <section className="sticky top-0 z-0 h-screen w-full flex items-center justify-center overflow-hidden pt-16 pb-24 md:pb-32">
             <HeroSection />
-            <h1
-              className="absolute top-0 text-[15vw] md:text-[20vw] font-bold uppercase tracking-tighter text-foreground/10 dark:text-primary/5 pointer-events-none select-none z-0 leading-none"
+            <div
+              className="absolute top-0 w-full flex justify-center pointer-events-none select-none z-0"
               style={{
                 WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 80%)',
                 maskImage: 'linear-gradient(to bottom, black 20%, transparent 80%)'
               }}
             >
-              PORTFOLIO
-            </h1>
+              <SplitText
+                text="PORTFOLIO"
+                className="text-[15vw] md:text-[20vw] font-bold uppercase tracking-tighter text-foreground/10 dark:text-primary/5 leading-none"
+                delay={50}
+                duration={1.5}
+                from={{ opacity: 0, y: 100 }}
+                to={{ opacity: 1, y: 0 }}
+                tag="h1"
+              />
+            </div>
           </section>
 
           {/* About: Slides over Hero */}
