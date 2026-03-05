@@ -46,8 +46,8 @@ const HeroSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const rawLogoY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const rawCatY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const rawLogoY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const rawCatY = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const catRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
 
   // Combine transforms efficiently
@@ -67,7 +67,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-7rem)] w-[100%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem]  my-4 border-none"
+      className="relative flex min-h-[calc(100vh-15rem)] w-[100%] max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden text-center dark:bg-zinc-950/80 rounded-[2rem] md:rounded-[3rem]  my-4 border-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -75,11 +75,11 @@ const HeroSection = () => {
 
       {/* Main Content - Decoupled from background re-renders */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center py-12 px-8">
-        <div className="space-y-4 flex flex-col items-center relative">
+        <div className="space-y-2 flex flex-col items-center relative">
           {/* Faded blur background */}
           <div className="absolute inset-0 bg-background/5 dark:bg-zinc-950/20 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] -z-10 rounded-full" />
 
-          <div className="relative flex justify-center items-center w-full py-8" ref={logoRef}>
+          <div className="relative flex justify-center items-center w-full pt-8 pb-0" ref={logoRef}>
             {/* Graffiti Background - Deep Layer */}
             <motion.div
               style={{
@@ -89,7 +89,7 @@ const HeroSection = () => {
               className="absolute inset-0 flex items-center justify-center opacity-70 dark:opacity-90 pointer-events-none scale-150 z-0 will-change-transform drop-shadow-[0_0_20px_gray] dark:drop-shadow-[0_0_25px_gray]"
             >
               <div
-                className="w-full h-full bg-gray-500 dark:bg-gray-400"
+                className="w-full h-full bg-gray-500 dark:bg-zinc-950 sm:w-[450px] md:w-[550px] lg:w-[700px]"
                 style={{
                   WebkitMaskImage: 'url(/Graffiiti_lines.svg)',
                   WebkitMaskSize: 'contain',
@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="z-10 will-change-transform relative"
             >
               <h1 className="text-4xl font-bold tracking-tighter text-foreground dark:text-primary sm:text-5xl md:text-6xl lg:text-7xl flex justify-center py-2 h-auto">
-                <GraffitiOM className="text-black dark:text-black w-[90vw] max-w-[400px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[750px] h-[500px] md:h-[550px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
+                <GraffitiOM className="text-black dark:text-black w-[90vw] max-w-[320px] sm:max-w-[450px] md:max-w-[550px] lg:max-w-[700px] h-[30vh] md:h-[30vh] max-h-[480px] m-2 drop-shadow-2xl dark:drop-shadow-[0_0_35px_hsl(var(--primary)/0.8)]" />
               </h1>
             </motion.div>
 
@@ -131,7 +131,7 @@ const HeroSection = () => {
                 width={180}
                 height={180}
                 priority // Critical for LCP performance
-                className="rounded-full border-4 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.8)] bg-zinc-950/50 backdrop-blur-sm"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-30 md:h-30 lg:w-30 lg:h-30 rounded-full border-4 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.8)] bg-zinc-950/50 backdrop-blur-sm"
               />
             </motion.div>
           </div>

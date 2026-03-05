@@ -55,9 +55,9 @@ export default function Home() {
     <InitialLoader>
       <div className="flex min-h-screen flex-col bg-background grid-background">
         <Header />
-        <main className="flex-grow flex flex-col pt-16">
+        <main className="flex-grow flex flex-col">
           {/* Hero: Bottom Layer */}
-          <section className="sticky top-0 z-0 h-screen w-full flex items-start justify-center overflow-hidden">
+          <section className="sticky top-0 z-0 h-screen w-full flex items-center justify-center overflow-hidden pt-16 pb-24 md:pb-32">
             <HeroSection />
             <h1
               className="absolute top-0 text-[15vw] md:text-[20vw] font-bold uppercase tracking-tighter text-foreground/10 dark:text-primary/5 pointer-events-none select-none z-0 leading-none"
