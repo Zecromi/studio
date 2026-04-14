@@ -22,7 +22,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3 text-lg font-bold text-primary md:text-xl">
-          &gt; Portfolio_Omiom
+          &gt; Portfolio_Omar_OM
         </a>
 
         <nav className="hidden items-center gap-4 md:flex">

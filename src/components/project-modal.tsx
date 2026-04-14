@@ -22,7 +22,7 @@ import { WebCandidatosMockup } from "./projects/web-candidatos-mockup";
 import { GespaWebMockup } from "./projects/gespa-web-mockup";
 import { CoorinMockup } from "./projects/coorin-mockup";
 import { GestalhV2Mockup } from "./projects/gestalh-v2-mockup";
-import { GimnasiaMockup } from "./projects/gimnasia-mockup";
+import { ProjectIframeModal } from "./projects/project-iframe";
 type Project = {
   title: string;
   description: string;
@@ -168,7 +168,7 @@ export function ProjectModal({ project, allProjects = [] }: ProjectModalProps) {
                   ) : activeProject.title === 'Gestalh 2.0' ? (
                     <GestalhV2Mockup />
                   ) : activeProject.title === 'Gimnasia' ? (
-                    <GimnasiaMockup />
+                    <ProjectIframeModal url={activeProject.liveUrl} title={activeProject.title} />
                   ) : (
                     <div className="h-full w-full flex flex-col items-center justify-center gap-6 text-primary/20 p-12">
                       <Sparkles className="w-24 h-24 animate-pulse transition-colors duration-500" style={{ color: `${activeProject.color}33` }} />

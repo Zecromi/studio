@@ -17,7 +17,7 @@ const WebCandidatosMockup = lazy(() => import("../projects/web-candidatos-mockup
 const GespaWebMockup = lazy(() => import("../projects/gespa-web-mockup").then(m => ({ default: m.GespaWebMockup })));
 const CoorinMockup = lazy(() => import("../projects/coorin-mockup").then(m => ({ default: m.CoorinMockup })));
 const GestalhV2Mockup = lazy(() => import("../projects/gestalh-v2-mockup").then(m => ({ default: m.GestalhV2Mockup })));
-const GimnasiaMockup = lazy(() => import("../projects/gimnasia-mockup").then(m => ({ default: m.GimnasiaMockup })));
+const ProjectIframePreview = lazy(() => import("../projects/project-iframe").then(m => ({ default: m.ProjectIframePreview })));
 import { GraffitiP } from "../graffiti-p";
 import { GraffitiS } from "../graffiti-s";
 
@@ -141,9 +141,7 @@ const ProjectPreview = ({ project }: { project: typeof projects[0] }) => {
             <GestalhV2Mockup />
           </div>
         ) : project.title === 'Gimnasia' ? (
-          <div className="h-full w-full pointer-events-none scale-90 origin-top-left flex justify-center w-[111%]">
-            <GimnasiaMockup />
-          </div>
+          <ProjectIframePreview url={project.liveUrl} title={project.title} />
         ) : (
           <div className="h-full w-full bg-background/50 p-4">
             {/* Fallback for other projects */}
